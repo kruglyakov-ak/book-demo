@@ -16,7 +16,7 @@ git --work-tree ./dist commit -m "Deploy to GitHub Pages"
 git push -f origin HEAD:gh-pages
 rm -r dist
 
-git checkout -f main
+git checkout -f master
 git branch -D gh-pages
 
 echo "Successfully deployed"
