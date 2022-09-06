@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js for use with actions
         uses: actions/setup-node@v2-beta
         with:
-          version: 16.x
+          version: 10.x
       - name: Checkout branch
         uses: actions/checkout@v2
 
@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build Application
-        run: npx ember build --environment=production
+        run: npx ember build --environment=ci
 
       - name: Run deploy script
         run: sh ./scripts/deploy-to-gh-pages.sh
