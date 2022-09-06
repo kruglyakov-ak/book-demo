@@ -24,14 +24,6 @@ body {
 /* Various styles
 -------------------------------------------------- */
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .navigation-main {
   flex: 1;
 }
@@ -263,7 +255,6 @@ a.tag-link:hover {
 
 .home-page {
   background-color: #F4F7FB;
-  height: 100vh;
 }
 
 /* card */
