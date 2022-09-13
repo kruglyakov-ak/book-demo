@@ -5,8 +5,7 @@
       "title": "The Clean Coder",
       "author": {
         "id": 1,
-        "firstName": "Robert",
-        "lastName": "Martin"
+        "name": "Robert Martin"
       },
       "pageCount": 567,
       "tags": ["суперкгнига", "программирование"],
@@ -17,8 +16,7 @@
       "title": "Agile Principles, Patterns, and Practices in C#",
       "author": {
         "id": 2,
-        "firstName": "C.S.",
-        "lastName": "Lewis"
+        "name": "C.S. Lewis"
       },
       "pageCount": 963,
       "tags": ["суперкгнига", "программирование"],
@@ -29,8 +27,7 @@
       "title": "The Chronicles of Narnia",
       "author": {
         "id": 3,
-        "firstName": "Edgar",
-        "lastName": "Poe"
+        "name": "Edgar Poe"
       },
       "pageCount": 496,
       "tags": ["суперкгнига", "программирование"],
@@ -40,8 +37,7 @@
       "id": 4,
       "title": "25 moments of something",
       "author": {
-        "firstName": "Erry",
-        "lastName": "Books",
+        "name": "Erry Books",
         "id": 6
       },
       "pageCount": 1819,
@@ -52,8 +48,7 @@
       "id": 5,
       "title": "Awsome Book for Programmers",
       "author": {
-        "firstName": "Colley",
-        "lastName": "Printley",
+        "name": "Colley Printley",
         "id": 7
       },
       "pageCount": 198,
@@ -64,8 +59,7 @@
       "id": 6,
       "title": "Super Cook Books",
       "author": {
-        "firstName": "Rolling",
-        "lastName": "Bowley",
+        "name": "Rolling Bowley",
         "id": 8
       },
       "pageCount": 282,
