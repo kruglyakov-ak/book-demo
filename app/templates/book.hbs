@@ -54,19 +54,23 @@
               alt="Обложка книги"
             />
             <div class="card-header">
-              <h5 class="card-title">Название книги</h5>
+              <h5 class="card-title">{{book.title}}</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <div><strong>Автор</strong>: Фамилия Имя</div>
-                <div><strong>Количество страниц</strong>: 333</div>
-                <div><strong>Теги</strong>:
-                  <a href="#" class="tag-link"><span
-                      class="small"
-                    >#суперкгнига</span></a>,
-                  <a href="#" class="tag-link"><span
-                      class="small"
-                    >#программирование</span></a></div>
+                <div><strong>Автор</strong>: {{book.author.name}}</div>
+                <div>
+                  <strong>Количество страниц</strong>:
+                  {{book.pageCount}}
+                </div>
+                <div>
+                  <strong>Теги</strong>:
+                  {{#each book.tags as |tag|}}
+                    <a href="#" class="tag-link"><span
+                        class="small"
+                      >#{{tag}}</span></a>
+                  {{/each}}
+                </div>
               </li>
               <li class="list-group-item">
                 <div class="row">
@@ -78,11 +82,11 @@
                       <div
                         class="progress-bar"
                         role="progressbar"
-                        style="width: 25%;"
+                        style="width: {{book.rate}}%;"
                         aria-valuenow="25"
                         aria-valuemin="0"
                         aria-valuemax="100"
-                      >25%</div>
+                      >{{book.rate}}%</div>
                     </div>
                   </div>
                 </div>
