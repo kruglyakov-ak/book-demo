@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">
+  {{#link-to "index" class="navbar-brand"}}
     <img
       src="images/logo-dark.png"
       width="30"
@@ -9,7 +9,7 @@
       loading="lazy"
     />
     Книжный клуб
-  </a>
+  {{/link-to}}
   <button
     class="navbar-toggler"
     type="button"
@@ -24,17 +24,23 @@
   <div class="collapse navbar-collapse" id="navbarContent">
     <ul class="nav navbar-nav navigation-main">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Рабочий стол
-          <span class="sr-only">(текущий)</span></a>
+        {{#link-to "index" class="nav-link"}}
+          Рабочий стол
+          <span class="sr-only">(текущий)</span>
+        {{/link-to}}
       </li>
       <li class="nav-item">
         <a class="nav-link" href="meetings.html">Встречи клуба</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="books.html">Книги</a>
+        {{#link-to "book" class="nav-link"}}
+          Книги
+        {{/link-to}}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="speakers.html">Спикеры</a>
+        {{#link-to "speaker" class="nav-link"}}
+          Спикеры
+        {{/link-to}}
       </li>
       <li class="nav-item">
         <a class="nav-link text-success" href="#">Оставить заявку</a>
