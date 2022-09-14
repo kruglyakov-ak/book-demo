@@ -5,6 +5,7 @@ module.exports = function (environment) {
     modulePrefix: "book-demo",
     environment,
     rootURL: "/",
+    backendURL: "http://localhost:3000",
     locationType: "auto",
     EmberENV: {
       FEATURES: {
