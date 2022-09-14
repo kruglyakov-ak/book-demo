@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { getOwner } from "@ember/application";
+import { refreshCurrentRoute } from "../../utils/common";
 
 export default Controller.extend({
   dataService: service("data"),
@@ -8,12 +8,10 @@ export default Controller.extend({
 
   actions: {
     async deleteSpeaker({ id }) {
+      // eslint-disable-next-line no-console
+      console.log(this);
       await this.get("dataService").deleteSpeaker(id);
-      const currentRouteName = this.get("routing.currentRouteName");
-      const currentRouteInstance = getOwner(this).lookup(
-        `route:${currentRouteName}`
-      );
-      currentRouteInstance.refresh();
+      refreshCurrentRoute(this);
     },
   },
 });
