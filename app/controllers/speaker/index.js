@@ -8,8 +8,6 @@ export default Controller.extend({
 
   actions: {
     async deleteSpeaker({ id }) {
-      // eslint-disable-next-line no-console
-      console.log(this);
       await this.get("dataService").deleteSpeaker(id);
       refreshCurrentRoute(this);
     },
