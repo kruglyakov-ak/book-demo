@@ -6,8 +6,12 @@ export default Controller.extend({
 
   actions: {
     async deleteSpeaker({ id }) {
-      await this.get("dataService").deleteSpeaker(id);
-      this.send("refreshRoute");
+      try {
+        await this.get("dataService").deleteSpeaker(id);
+        this.send("refreshRoute");
+      } catch (error) {
+        this.transitionToRoute("error", { error: "Connections failed" });
+      }
     },
   },
 });

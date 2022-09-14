@@ -6,8 +6,12 @@ export default Controller.extend({
 
   actions: {
     async deleteBook({ id }) {
-      await this.get("dataService").deleteBook(id);
-      this.send("refreshRoute");
+      try {
+        await this.get("dataService").deleteBook(id);
+        this.send("refreshRoute");
+      } catch (error) {
+        this.transitionToRoute('error', {error: "Connections failed"});
+      }
     },
   },
 });
