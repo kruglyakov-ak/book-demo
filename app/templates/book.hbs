@@ -44,11 +44,6 @@
         </form>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 fix-margin">
-      {{#each model as |book|}}
-        {{book-item book=book tagName=""}}
-      {{/each}}
-
-    </div>
+    {{outlet}}
   </div>
 </div>
