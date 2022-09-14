@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function () {
   this.route("book");
   this.route("speaker");
+  this.route("404", { path: "*path" });
 });
 
 export default Router;
