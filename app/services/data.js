@@ -6,8 +6,14 @@ export default Service.extend({
     const response = await fetch(`${ENV.backendURL}/books`);
     return await response.json();
   },
+
   async getSpeakers() {
     const response = await fetch(`${ENV.backendURL}/speakers`);
+    return await response.json();
+  },
+
+  async deleteSpeaker(id) {
+    const response = await fetch(`${ENV.backendURL}/speakers/${id}`, {method: "DELETE"});
     return await response.json();
   },
 });

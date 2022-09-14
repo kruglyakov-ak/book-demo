@@ -33,10 +33,8 @@
         </form>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3">
-      {{#each model as |speaker|}}
-        {{speaker-item speaker=speaker tagName=""}}
-      {{/each}}
-    </div>
+
+    {{outlet}}
+
   </div>
 </div>
