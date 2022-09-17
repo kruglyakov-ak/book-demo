@@ -3,10 +3,7 @@
     {
       "id": 1,
       "title": "The Clean Coder",
-      "author": {
-        "id": 1,
-        "name": "Robert Martin"
-      },
+      "authorName": "Robert Martin",
       "pageCount": 567,
       "tags": ["суперкгнига", "программирование"],
       "rate": 40
@@ -14,10 +11,7 @@
     {
       "id": 2,
       "title": "Agile Principles, Patterns, and Practices in C#",
-      "author": {
-        "id": 2,
-        "name": "C.S. Lewis"
-      },
+      "authorName": "C.S. Lewis",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 963,
       "tags": ["суперкгнига", "программирование"],
@@ -26,10 +20,7 @@
     {
       "id": 3,
       "title": "The Chronicles of Narnia",
-      "author": {
-        "id": 3,
-        "name": "Edgar Poe"
-      },
+      "authorName": "Edgar Poe",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 496,
       "tags": ["суперкгнига", "программирование"],
@@ -38,10 +29,7 @@
     {
       "id": 4,
       "title": "25 moments of something",
-      "author": {
-        "name": "Erry Books",
-        "id": 6
-      },
+      "authorName": "Erry Books",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 1819,
       "tags": ["суперкгнига", "программирование"],
@@ -50,10 +38,7 @@
     {
       "id": 5,
       "title": "Awsome Book for Programmers",
-      "author": {
-        "name": "Colley Printley",
-        "id": 7
-      },
+      "authorName": "Colley Printley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 198,
       "tags": ["суперкгнига", "программирование"],
@@ -62,10 +47,7 @@
     {
       "id": 6,
       "title": "Super Cook Books",
-      "author": {
-        "name": "Rolling Bowley",
-        "id": 8
-      },
+      "authorName": "Rolling Bowley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 282,
       "tags": ["суперкгнига", "программирование"],
