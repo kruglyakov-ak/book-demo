@@ -18,8 +18,12 @@
         "id": 2,
         "name": "C.S. Lewis"
       },
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 963,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 75
     },
     {
@@ -29,8 +33,12 @@
         "id": 3,
         "name": "Edgar Poe"
       },
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 496,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 23
     },
     {
@@ -40,8 +48,12 @@
         "name": "Erry Books",
         "id": 6
       },
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 1819,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 36
     },
     {
@@ -51,8 +63,12 @@
         "name": "Colley Printley",
         "id": 7
       },
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 198,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 78
     },
     {
@@ -62,8 +78,12 @@
         "name": "Rolling Bowley",
         "id": 8
       },
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 282,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 65
     }
   ],
