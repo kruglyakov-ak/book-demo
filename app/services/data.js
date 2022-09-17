@@ -13,12 +13,20 @@ export default Service.extend({
   },
 
   async deleteBook(id) {
-    const response = await fetch(`${ENV.backendURL}/books/${id}`, {method: "DELETE"});
-    return await response.json();
+    return await fetch(`${ENV.backendURL}/books/${id}`, { method: "DELETE" });
   },
 
   async deleteSpeaker(id) {
-    const response = await fetch(`${ENV.backendURL}/speakers/${id}`, {method: "DELETE"});
-    return await response.json();
+    return await fetch(`${ENV.backendURL}/speakers/${id}`, {
+      method: "DELETE",
+    });
+  },
+
+  async createBook(book) {
+    return await fetch(`${ENV.backendURL}/books}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringyfy(book),
+    });
   },
 });
