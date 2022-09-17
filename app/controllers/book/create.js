@@ -3,11 +3,10 @@ import { inject as service } from "@ember/service";
 
 export default Controller.extend({
   dataService: service("data"),
-
   actions: {
-    saveBook(evt) {
+    async saveBook(evt) {
       evt.preventDefault();
-      return this.get("dataService").createBook({
+      await this.get("dataService").createBook({
         title: this.get("title"),
         authorName: this.get("authorName"),
         pageCount: this.get("pageCount"),
@@ -16,6 +15,7 @@ export default Controller.extend({
         descriptionLink: this.get("descriptionLink"),
         coverURL: this.get("coverURL"),
       });
+      this.transitionToRoute("book");
     },
     changeTitle(title) {
       this.set("title", title);
@@ -40,6 +40,9 @@ export default Controller.extend({
         "tags",
         tags.split(",").map((tag) => tag.trim())
       );
+    },
+    backToBoks() {
+      this.transitionToRoute("book");
     },
   },
 });
