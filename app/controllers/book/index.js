@@ -13,5 +13,8 @@ export default Controller.extend({
         this.send('error', new Error('Connection failed'));
       }
     },
+    clickOnCreateButton() {
+      this.transitionToRoute("book.create");
+    }
   },
 });
