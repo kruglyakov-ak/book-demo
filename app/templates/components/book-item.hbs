@@ -1,12 +1,12 @@
 <div class="col mb-4">
   <div class="card">
-    <img src="images/book-cover.jpg" class="card-img-top" alt="Обложка книги" />
+    <img src={{if book.coverURL book.coverURL "images/book-cover.jpg"}} class="card-img-top" alt="Обложка книги" />
     <div class="card-header">
       <h5 class="card-title">{{book.title}}</h5>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <div><strong>Автор</strong>: {{book.author.name}}</div>
+        <div><strong>Автор</strong>: {{book.authorName}}</div>
         <div>
           <strong>Количество страниц</strong>:
           {{book.pageCount}}
@@ -41,7 +41,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="col">
-          <a href="#" class="card-link line-offset">Описание</a>
+          <a href={{book.descriptionLink}} class="card-link line-offset">Описание</a>
         </div>
         <div class="col text-right">
           <button

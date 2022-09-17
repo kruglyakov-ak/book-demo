@@ -23,10 +23,10 @@ export default Service.extend({
   },
 
   async createBook(book) {
-    return await fetch(`${ENV.backendURL}/books}`, {
+    return await fetch(`${ENV.backendURL}/books`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringyfy(book),
+      body: JSON.stringify(book),
     });
   },
 });

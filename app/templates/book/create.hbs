@@ -29,7 +29,7 @@
             class="form-control form-control-lg"
             id="inputAuthor"
             placeholder="Фамилия И.О. автора"
-            oninput={{action "changeAuthorName"}}
+            oninput={{action "changeAuthorName" value="target.value"}}
           />
         </div>
       </div>
@@ -44,7 +44,7 @@
             class="form-control form-control-lg"
             id="inputPagesCount"
             placeholder="Количество страниц книги"
-            oninput={{action "changePageCount"}}
+            oninput={{action "changePageCount" value="target.value"}}
           />
         </div>
       </div>
@@ -59,7 +59,7 @@
             class="form-control form-control-lg"
             id="inputDescriptionURL"
             placeholder="Ссылка на сайт с описанием книги"
-            oninput={{action "changeDescription"}}
+            oninput={{action "changeDescription" value="target.value"}}
           />
         </div>
       </div>
@@ -75,19 +75,19 @@
               class="custom-file-input"
               id="customFile"
               lang="ru"
-              oninput={{action "changeCover"}}
+              oninput={{action "changeCover" value="target.value"}}
             />
             <label
               class="custom-file-label form-control-lg placeholder-color"
               for="customFile"
               data-browse="Выбрать"
-            >Выберите файл</label>
+            >{{if coverURL coverURL "Выберите файл"}}</label>
           </div>
           <div class="input-group-append">
             <button
               class="btn btn-outline-secondary custom-file-clear"
               type="button"
-              disabled="disabled"
+              disabled={{if coverURL false true}}
               onclick={{action "resetCover"}}
             >X</button>
           </div>
@@ -104,6 +104,7 @@
             class="form-control"
             id="inputPatronymic"
             placeholder="#Теги через запятую"
+            oninput={{action "changeTags" value="target.value"}}
           />
           <select multiple="multiple" data-role="tagsinput" id="inputTags">
             <option value="суперкнига" selected="selected">суперкнига</option>

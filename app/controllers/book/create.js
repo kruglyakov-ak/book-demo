@@ -5,16 +5,41 @@ export default Controller.extend({
   dataService: service("data"),
 
   actions: {
-    saveBook() {
-      return this.get("dataService").createBook();
+    saveBook(evt) {
+      evt.preventDefault();
+      return this.get("dataService").createBook({
+        title: this.get("title"),
+        authorName: this.get("authorName"),
+        pageCount: this.get("pageCount"),
+        tags: this.get("tags"),
+        rate: 25,
+        descriptionLink: this.get("descriptionLink"),
+        coverURL: this.get("coverURL"),
+      });
     },
     changeTitle(title) {
       this.set("title", title);
     },
-    changeAuthorName() {},
-    changePageCount() {},
-    changeDescription() {},
-    changeCover() {},
-    resetCover() {},
+    changeAuthorName(authorName) {
+      this.set("authorName", authorName);
+    },
+    changePageCount(pageCount) {
+      this.set("pageCount", pageCount);
+    },
+    changeDescription(descriptionLink) {
+      this.set("descriptionLink", descriptionLink);
+    },
+    changeCover(coverURL) {
+      this.set("coverURL", coverURL);
+    },
+    resetCover() {
+      this.set("coverURL", null);
+    },
+    changeTags(tags) {
+      this.set(
+        "tags",
+        tags.split(",").map((tag) => tag.trim())
+      );
+    },
   },
 });
