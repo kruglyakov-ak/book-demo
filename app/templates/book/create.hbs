@@ -98,22 +98,25 @@
           for="inputTags"
           class="col-sm-2 col-form-label text-right"
         >Теги</label>
-        <div class="col-sm-10">
+        {{!-- <div class="col-sm-10">
           <input
             type="text"
             class="form-control"
             id="inputPatronymic"
             placeholder="#Теги через запятую"
+            value={{if tags (tags.split(', ')) "Выберите файл"}}
             oninput={{action "changeTags" value="target.value"}}
           />
-          <select multiple="multiple" data-role="tagsinput" id="inputTags">
-            <option value="суперкнига" selected="selected">суперкнига</option>
-            <option
-              value="программирование"
-              selected="selected"
-            >программирование</option>
+          <select
+            multiple="multiple"
+            data-role="tagsinput"
+            id="inputTags"
+            oninput={{action "selectTag" value="target.value"}}
+          >
+            <option value="суперкнига">суперкнига</option>
+            <option value="программирование">программирование</option>
           </select>
-        </div>
+        </div> --}}
       </div>
       <div class="form-group row">
         <div class="col-12 text-right">
