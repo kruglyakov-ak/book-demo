@@ -29,4 +29,12 @@ export default Service.extend({
       body: JSON.stringify(book),
     });
   },
+
+  async createSpeaker(speaker) {
+    return await fetch(`${ENV.backendURL}/speakers`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(speaker),
+    });
+  },
 });

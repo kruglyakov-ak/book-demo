@@ -13,5 +13,8 @@ export default Controller.extend({
         this.transitionToRoute("error", { error: "Connections failed" });
       }
     },
+    clickOnCreateButton() {
+      this.transitionToRoute("speaker.create");
+    },
   },
 });
