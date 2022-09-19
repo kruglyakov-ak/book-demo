@@ -12,7 +12,7 @@ export default Controller.extend({
           title: this.get("title"),
           authorName: this.get("authorName"),
           pageCount: this.get("pageCount"),
-          rate: 25,
+          rate: Math.floor(Math.random() * 100),
           descriptionLink: this.get("descriptionLink"),
           // tags: this.get("tags"),
           coverURL: this.get("coverURL"),
