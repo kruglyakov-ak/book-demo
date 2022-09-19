@@ -75,26 +75,26 @@
   "speakers": [
     {
       "id": 1,
-      "firstName": "Evgeniy",
-      "lastName": "Khaberev",
+      "name": "Evgeniy",
+      "surname": "Khaberev",
       "patronymic": "Sergeevich"
     },
     {
       "id": 2,
-      "firstName": "Markus",
-      "lastName": "Friendly",
+      "name": "Markus",
+      "surname": "Friendly",
       "patronymic": "Avrelievich"
     },
     {
       "id": 3,
-      "firstName": "Sam",
-      "lastName": "Ridley",
+      "name": "Sam",
+      "surname": "Ridley",
       "patronymic": "Petrovich"
     },
     {
       "id": 4,
-      "firstName": "Joht",
-      "lastName": "Smith",
+      "name": "Joht",
+      "surname": "Smith",
       "patronymic": "Ivanov"
     }
   ]
