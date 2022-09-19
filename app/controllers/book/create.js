@@ -28,26 +28,6 @@ export default Controller.extend({
       this.transitionToRoute("book");
     },
 
-    changeTitle(title) {
-      this.set("title", title);
-    },
-
-    changeAuthorName(authorName) {
-      this.set("authorName", authorName);
-    },
-
-    changePageCount(pageCount) {
-      this.set("pageCount", pageCount);
-    },
-
-    changeDescription(descriptionLink) {
-      this.set("descriptionLink", descriptionLink);
-    },
-
-    changeCover(coverURL) {
-      this.set("coverURL", coverURL);
-    },
-
     resetCover() {
       this.set("coverURL", null);
     },
