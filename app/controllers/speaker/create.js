@@ -22,16 +22,5 @@ export default Controller.extend({
       this.transitionToRoute("speaker");
     },
 
-    changeName(name) {
-      this.set("name", name);
-    },
-
-    changeSurname(surname) {
-      this.set("surname", surname);
-    },
-
-    changePatronymic(patronymic) {
-      this.set("patronymic", patronymic);
-    },
   },
 });
