@@ -6,15 +6,25 @@ export default Controller.extend({
   actions: {
     async saveBook(evt) {
       evt.preventDefault();
-      await this.get("dataService").createBook({
-        title: this.get("title"),
-        authorName: this.get("authorName"),
-        pageCount: this.get("pageCount"),
-        rate: 25,
-        descriptionLink: this.get("descriptionLink"),
-        // tags: this.get("tags"),
-        coverURL: this.get("coverURL"),
-      });
+
+      if (evt.submitter.dataset.name === "save") {
+        await this.get("dataService").createBook({
+          title: this.get("title"),
+          authorName: this.get("authorName"),
+          pageCount: this.get("pageCount"),
+          rate: 25,
+          descriptionLink: this.get("descriptionLink"),
+          // tags: this.get("tags"),
+          coverURL: this.get("coverURL"),
+        });
+      }
+
+      this.set("title", null);
+      this.set("authorName", null);
+      this.set("pageCount", null);
+      this.set("descriptionLink", null);
+      this.set("tags", null);
+      this.set("coverURL", null);
       this.transitionToRoute("book");
     },
 
@@ -40,10 +50,6 @@ export default Controller.extend({
 
     resetCover() {
       this.set("coverURL", null);
-    },
-
-    backToBoks() {
-      this.transitionToRoute("book");
     },
 
     // changeTags(tags) {
