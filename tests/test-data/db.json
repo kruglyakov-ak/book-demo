@@ -77,25 +77,25 @@
       "id": 1,
       "firstName": "Evgeniy",
       "lastName": "Khaberev",
-      "fatherName": "Sergeevich"
+      "patronymic": "Sergeevich"
     },
     {
       "id": 2,
       "firstName": "Markus",
       "lastName": "Friendly",
-      "fatherName": "Avrelievich"
+      "patronymic": "Avrelievich"
     },
     {
       "id": 3,
       "firstName": "Sam",
       "lastName": "Ridley",
-      "fatherName": "Petrovich"
+      "patronymic": "Petrovich"
     },
     {
       "id": 4,
       "firstName": "Joht",
       "lastName": "Smith",
-      "fatherName": "Ivanov"
+      "patronymic": "Ivanov"
     }
   ]
 }
