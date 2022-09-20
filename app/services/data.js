@@ -12,6 +12,11 @@ export default Service.extend({
     return await response.json();
   },
 
+  async getSpeaker(id) {
+    const response = await fetch(`${ENV.backendURL}/speakers/${id}`);
+    return await response.json();
+  },
+
   async getSpeakers() {
     const response = await fetch(`${ENV.backendURL}/speakers`);
     return await response.json();
@@ -46,6 +51,14 @@ export default Service.extend({
   async createSpeaker(speaker) {
     return await fetch(`${ENV.backendURL}/speakers`, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(speaker),
+    });
+  },
+
+  async updateSpeaker(speaker) {
+    return await fetch(`${ENV.backendURL}/speakers/${speaker.id}`, {
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(speaker),
     });
