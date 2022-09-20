@@ -7,6 +7,11 @@ export default Service.extend({
     return await response.json();
   },
 
+  async getBook(id) {
+    const response = await fetch(`${ENV.backendURL}/books/${id}`);
+    return await response.json();
+  },
+
   async getSpeakers() {
     const response = await fetch(`${ENV.backendURL}/speakers`);
     return await response.json();
@@ -25,6 +30,14 @@ export default Service.extend({
   async createBook(book) {
     return await fetch(`${ENV.backendURL}/books`, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(book),
+    });
+  },
+
+  async updateBook(book) {
+    return await fetch(`${ENV.backendURL}/books/${book.id}`, {
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(book),
     });
