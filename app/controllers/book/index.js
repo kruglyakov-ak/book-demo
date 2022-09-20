@@ -10,11 +10,16 @@ export default Controller.extend({
         await this.get("dataService").deleteBook(id);
         this.send("refreshRoute");
       } catch (error) {
-        this.send('error', new Error('Connection failed'));
+        this.send("error", new Error("Connection failed"));
       }
     },
+
     clickOnCreateButton() {
       this.transitionToRoute("book.create");
-    }
+    },
+
+    clickOnEditButton(id) {
+      this.transitionToRoute(`/books/${id}/edit`);
+    },
   },
 });
