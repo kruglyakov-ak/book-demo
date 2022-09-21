@@ -1,7 +1,18 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import EmberObject from "@ember/object";
 
 export default Controller.extend({
+  init() {
+    this._super(...arguments);
+    this.set("book", EmberObject.create());
+    this.get("book").set("title", null);
+    this.get("book").set("authorName", null);
+    this.get("book").set("pageCount", null);
+    this.get("book").set("descriptionLink", null);
+    this.get("book").set("tags", null);
+    this.get("book").set("coverURL", null);
+  },
   dataService: service("data"),
   actions: {
     async saveBook(evt) {
@@ -9,27 +20,27 @@ export default Controller.extend({
 
       if (evt.submitter.dataset.name === "save") {
         await this.get("dataService").createBook({
-          title: this.get("title"),
-          authorName: this.get("authorName"),
-          pageCount: this.get("pageCount"),
+          title: this.get("book").get("title"),
+          authorName: this.get("book").get("authorName"),
+          pageCount: this.get("book").get("pageCount"),
           rate: Math.floor(Math.random() * 100),
-          descriptionLink: this.get("descriptionLink"),
-          // tags: this.get("tags"),
-          coverURL: this.get("coverURL"),
+          descriptionLink: this.get("book").get("descriptionLink"),
+          // tags: this.get("book").get("tags"),
+          coverURL: this.get("book").get("coverURL"),
         });
       }
 
-      this.set("title", null);
-      this.set("authorName", null);
-      this.set("pageCount", null);
-      this.set("descriptionLink", null);
-      this.set("tags", null);
-      this.set("coverURL", null);
+      this.get("book").set("title", null);
+      this.get("book").set("authorName", null);
+      this.get("book").set("pageCount", null);
+      this.get("book").set("descriptionLink", null);
+      this.get("book").set("tags", null);
+      this.get("book").set("coverURL", null);
       this.transitionToRoute("book");
     },
 
     resetCover() {
-      this.set("coverURL", null);
+      this.get("book").set("coverURL", null);
     },
 
     // changeTags(tags) {

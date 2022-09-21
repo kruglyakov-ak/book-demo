@@ -1,4 +1,4 @@
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 
 export default Controller.extend({
@@ -17,7 +17,7 @@ export default Controller.extend({
           descriptionLink: this.model.descriptionLink,
           // tags: this.get("tags"),
           coverURL: this.model.coverURL,
-          id: this.model.id
+          id: this.model.id,
         });
       }
 
@@ -27,5 +27,5 @@ export default Controller.extend({
     resetCover() {
       this.set("coverURL", null);
     },
-  }
+  },
 });
