@@ -11,7 +11,7 @@
       ],
       "rate": 89,
       "descriptionLink": "",
-      "coverURL": "C:\\fakepath\\6.jpg"
+      "coverURL": ""
     },
     {
       "id": 2,
@@ -72,18 +72,6 @@
         "программирование"
       ],
       "rate": 65
-    },
-    {
-      "rate": 27,
-      "id": 7
-    },
-    {
-      "rate": 59,
-      "id": 8
-    },
-    {
-      "rate": 61,
-      "id": 9
     }
   ],
   "speakers": [
