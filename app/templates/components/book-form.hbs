@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="htop">
-    <h2 class="text-center">Создание книги: {{book.title}}</h2>
-    <form class="edit-form" onsubmit={{submitAction}}>
+    <h2 class="text-center">Создание книги: {{title}}</h2>
+    <form class="edit-form" onsubmit={{action "submitForm"}}>
       <div class="form-group row">
         <label
           for="inputTitle"
@@ -13,7 +13,7 @@
             class="form-control form-control-lg"
             id="inputTitle"
             placeholder="Полное название книги"
-            value=book.title
+            value=title
           }}
         </div>
       </div>
@@ -28,7 +28,7 @@
             class="form-control form-control-lg"
             id="inputAuthor"
             placeholder="Фамилия И.О. автора"
-            value=book.authorName
+            value=authorName
           }}
         </div>
       </div>
@@ -43,7 +43,7 @@
             class="form-control form-control-lg"
             id="inputPagesCount"
             placeholder="Количество страниц книги"
-            value=book.pageCount
+            value=pageCount
           }}
         </div>
       </div>
@@ -58,7 +58,7 @@
             class="form-control form-control-lg"
             id="inputDescriptionURL"
             placeholder="Ссылка на сайт с описанием книги"
-            value=book.descriptionLink
+            value=descriptionLink
           }}
         </div>
       </div>
@@ -74,20 +74,20 @@
               class="custom-file-input"
               id="customFile"
               lang="ru"
-              value=book.coverURL
+              value=coverURL
             }}
             <label
               class="custom-file-label form-control-lg placeholder-color"
               for="customFile"
               data-browse="Выбрать"
-            >{{if book.coverURL book.coverURL "Выберите файл"}}</label>
+            >{{if coverURL coverURL "Выберите файл"}}</label>
           </div>
           <div class="input-group-append">
             <button
               class="btn btn-outline-secondary custom-file-clear"
               type="button"
-              disabled={{if book.coverURL false true}}
-              onclick={{resetCoverActon}}
+              disabled={{if coverURL false true}}
+              onclick={{action "resetCover"}}
             >X</button>
           </div>
         </div>
