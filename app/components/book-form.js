@@ -4,7 +4,6 @@ export default Component.extend({
   actions: {
     async submitForm(evt) {
       evt.preventDefault();
-
       this.onsubmit(evt, {
         id: this.get("id"),
         title: this.get("title"),
@@ -12,7 +11,11 @@ export default Component.extend({
         pageCount: this.get("pageCount"),
         descriptionLink: this.get("descriptionLink"),
         rate: Math.floor(Math.random() * 100),
-        tags: this.get("tags"),
+        tags: this.get("tags")
+          ? this.get("tags")
+              .split(",")
+              .map((tag) => tag.trim())
+          : "",
         coverURL: this.get("coverURL"),
       });
     },
@@ -31,7 +34,7 @@ export default Component.extend({
       authorName: this.get("book.authorName"),
       pageCount: this.get("book.pageCount"),
       descriptionLink: this.get("book.descriptionLink"),
-      tags: this.get("book.tags"),
+      tags: this.get("book.tags").join(", "),
       coverURL: this.get("book.coverURL"),
     });
   },
