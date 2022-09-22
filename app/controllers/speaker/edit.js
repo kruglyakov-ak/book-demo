@@ -5,19 +5,14 @@ export default Controller.extend({
   dataService: service("data"),
 
   actions: {
-    async saveSpeaker(evt) {
+    async saveSpeaker(evt, speaker) {
       evt.preventDefault();
 
       if (evt.submitter.dataset.name === "save") {
-        await this.get("dataService").updateSpeaker({
-          name: this.model.name,
-          surname: this.model.surname,
-          patronymic: this.model.patronymic,
-          id: this.model.id,
-        });
+        await this.get("dataService").updateSpeaker(speaker);
       }
 
-      this.transitionToRoute("speaker");
+      this.transitionToRoute("speaker.index");
     },
   },
 });

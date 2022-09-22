@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="htop">
-    <h2 class="text-center">Редактирование спикера: {{speaker.name}} {{speaker.surname}}</h2>
-    <form class="edit-form" onsubmit={{submitAction}}>
+    <h2 class="text-center">Редактирование спикера: {{name}} {{surname}}</h2>
+    <form class="edit-form" onsubmit={{action "submitForm"}}>
       <div class="form-group row">
         <label
           for="inputSurname"
@@ -13,7 +13,7 @@
             class="form-control form-control-lg"
             id="inputSurname"
             placeholder="Введите фамилию"
-            value=speaker.surname
+            value=surname
           }}
         </div>
       </div>
@@ -28,7 +28,7 @@
             class="form-control form-control-lg"
             id="inputName"
             placeholder="Введите имя"
-            value=speaker.name
+            value=name
           }}
         </div>
       </div>
@@ -43,7 +43,7 @@
             class="form-control form-control-lg"
             id="inputPatronymic"
             placeholder="Введите отчество"
-            value=speaker.patronymic
+            value=patronymic
           }}
         </div>
       </div>
