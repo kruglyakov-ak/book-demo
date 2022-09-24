@@ -21,8 +21,12 @@ export default Service.extend({
     return await response.json();
   },
 
-  async getSpeakers() {
-    const response = await fetch(`${ENV.backendURL}/speakers`);
+  async getSpeakers(search) {
+    let queryParams = "";
+    if (search) {
+      queryParams = `?q=${search}`;
+    }
+    const response = await fetch(`${ENV.backendURL}/speakers${queryParams}`);
     return await response.json();
   },
 

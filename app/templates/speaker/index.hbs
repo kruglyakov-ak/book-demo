@@ -24,27 +24,34 @@
       </div>
       <div class="col-md-auto">
         <form class="form-inline">
-          <input
+          {{input
             class="form-control mr-2 search-long search-only"
             type="search"
             placeholder="ФИО"
             aria-label="Спикер"
-          />
+            value=search
+          }}
           <button class="btn btn-primary my-2" type="submit">Найти</button>
         </form>
       </div>
     </div>
-
-    <div class="row row-cols-1 row-cols-md-3">
-      {{#each model as |speaker|}}
-        {{speaker-item
-          speaker=speaker
-          deleteAction=(action "deleteSpeaker" speaker)
-          editAction=(action "clickOnEditButton" speaker.id)
-          tagName=""
-        }}
-      {{/each}}
-    </div>
-
+    {{#if this.isLoading}}
+      <div class="container h-100">
+        <div class="row align-items-center justify-content-center h-100">
+          <img src="/images/loading.gif" alt="Loading" />
+        </div>
+      </div>
+    {{else}}
+      <div class="row row-cols-1 row-cols-md-3">
+        {{#each model as |speaker|}}
+          {{speaker-item
+            speaker=speaker
+            deleteAction=(action "deleteSpeaker" speaker)
+            editAction=(action "clickOnEditButton" speaker.id)
+            tagName=""
+          }}
+        {{/each}}
+      </div>
+    {{/if}}
   </div>
 </div>
