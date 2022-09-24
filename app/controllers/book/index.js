@@ -5,6 +5,7 @@ import { inject as service } from "@ember/service";
 export default Controller.extend({
   dataService: service("data"),
   search: "",
+  searchByTags: "",
 
   actions: {
     async deleteBook({ id }) {

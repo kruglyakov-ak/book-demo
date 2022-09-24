@@ -2,12 +2,15 @@ import Service from "@ember/service";
 import ENV from "book-demo/config/environment";
 
 export default Service.extend({
-  async getBooks(search) {
-    let queryParams = "";
-    if (search) {
-      queryParams = `?q=${search}`;
-    }
-    const response = await fetch(`${ENV.backendURL}/books${queryParams}`);
+  async getBooks(search, searchByTags) {
+    const queryParam = search || searchByTags ? "?" : "";
+    const querySearch = search ? `q=${search}` : "";
+    const querySearchByTags = searchByTags ? `tags_like=${searchByTags}` : "";
+    const response = await fetch(
+      `${ENV.backendURL}/books${queryParam}${querySearch}${
+        querySearchByTags ? "&" : ""
+      }${querySearchByTags}`
+    );
     return await response.json();
   },
 

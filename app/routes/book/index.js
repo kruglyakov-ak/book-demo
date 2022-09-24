@@ -7,17 +7,18 @@ export default Route.extend({
     search: {
       refreshModel: true,
     },
+    searchByTags: {
+      refreshModel: true,
+    },
   },
-  async model({ search }) {
+  async model({ search, searchByTags }) {
     let promise = new Promise(async (resolve, reject) => {
-        try {
-          let books = search
-            ? await this.get("dataService").getBooks(search)
-            : await this.get("dataService").getBooks();
-          resolve(books);
-        } catch (e) {
-          reject("Connection failed");
-        }
+      try {
+        let books = await this.get("dataService").getBooks(search, searchByTags);
+        resolve(books);
+      } catch (e) {
+        reject("Connection failed");
+      }
     })
       .then((books) => {
         this.set("controller.model", books);
@@ -36,14 +37,14 @@ export default Route.extend({
 
   setupController(controller) {
     this._super(...arguments);
-    if (this.get('modelPromise')) {
-      controller.set('isLoading', true);
+    if (this.get("modelPromise")) {
+      controller.set("isLoading", true);
     }
   },
 
   actions: {
     refreshRoute() {
       this.refresh();
-    }
-  }
+    },
+  },
 });
