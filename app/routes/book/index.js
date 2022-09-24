@@ -40,4 +40,10 @@ export default Route.extend({
       controller.set('isLoading', true);
     }
   },
+
+  actions: {
+    refreshRoute() {
+      this.refresh();
+    }
+  }
 });
