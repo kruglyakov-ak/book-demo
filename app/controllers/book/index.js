@@ -24,5 +24,15 @@ export default Controller.extend({
     clickOnEditButton(id) {
       this.transitionToRoute(`/books/${id}/edit`);
     },
+
+    search(evt) {
+      evt.preventDefault();
+      this.set("search", this.searchBooks)
+    },
+
+    searchByTags(evt) {
+      evt.preventDefault();
+      this.set("searchByTags", this.searchBooksByTags)
+    }
   },
 });
