@@ -33,6 +33,10 @@ export default Controller.extend({
     searchByTags(evt) {
       evt.preventDefault();
       this.set("searchByTags", this.searchBooksByTags)
+    },
+
+    routeByTag(tag) {
+      this.set("searchByTags", tag)
     }
   },
 });

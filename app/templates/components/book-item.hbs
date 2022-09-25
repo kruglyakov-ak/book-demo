@@ -1,6 +1,10 @@
 <div class="col mb-4">
   <div class="card">
-    <img src={{if book.coverURL book.coverURL "images/book-cover.jpg"}} class="card-img-top" alt="Обложка книги" />
+    <img
+      src={{if book.coverURL book.coverURL "images/book-cover.jpg"}}
+      class="card-img-top"
+      alt="Обложка книги"
+    />
     <div class="card-header">
       <h5 class="card-title">{{book.title}}</h5>
     </div>
@@ -14,7 +18,9 @@
         <div>
           <strong>Теги</strong>:
           {{#each book.tags as |tag|}}
-            <a href="#" class="tag-link"><span class="small">#{{tag}}</span></a>
+            {{#link-to "book.index" class="tag-link"}}
+              <span class="small" onClick={{action "route" tag}}>#{{tag}}</span>
+            {{/link-to}}
           {{/each}}
         </div>
       </li>
@@ -41,15 +47,13 @@
     <div class="card-footer">
       <div class="row">
         <div class="col">
-          <a href={{book.descriptionLink}} class="card-link line-offset">Описание</a>
+          <a
+            href={{book.descriptionLink}}
+            class="card-link line-offset"
+          >Описание</a>
         </div>
         <div class="col text-right">
-          <button
-            type="button"
-            class="btn btn-edit"
-            onclick={{editAction}}
-
-          >
+          <button type="button" class="btn btn-edit" onclick={{editAction}}>
             <svg
               viewBox="0 0 16 16"
               class="bi bi-pencil card-button"
