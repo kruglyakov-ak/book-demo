@@ -23,9 +23,9 @@ export default Controller.extend({
       this.transitionToRoute(`/speakers/${id}/edit`);
     },
 
-    async search(evt) {
+    search(evt) {
       evt.preventDefault();
-      this.send("refreshRoute", this.search);
+      this.set("search", this.searchSpeaker);
     },
   },
 });
