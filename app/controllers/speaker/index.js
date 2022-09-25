@@ -22,5 +22,10 @@ export default Controller.extend({
     clickOnEditButton(id) {
       this.transitionToRoute(`/speakers/${id}/edit`);
     },
+
+    async search(evt) {
+      evt.preventDefault();
+      this.send("refreshRoute", this.search);
+    },
   },
 });
