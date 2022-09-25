@@ -1,0 +1,103 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "The Clean Coder",
+      "authorName": "Robert Martin",
+      "pageCount": 567,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 89,
+      "descriptionLink": "",
+      "coverURL": ""
+    },
+    {
+      "id": 2,
+      "title": "Agile Principles, Patterns, and Practices in C#",
+      "authorName": "C.S. Lewis",
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
+      "pageCount": 963,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 75
+    },
+    {
+      "id": 3,
+      "title": "The Chronicles of Narnia",
+      "authorName": "Edgadxgd",
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
+      "pageCount": 496,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 18
+    },
+    {
+      "id": 4,
+      "title": "25 moments of something",
+      "authorName": "Erry Books",
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
+      "pageCount": 1819,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 36
+    },
+    {
+      "id": 5,
+      "title": "Awsome Book for Programmers",
+      "authorName": "Colley Printley",
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
+      "pageCount": 198,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 78
+    },
+    {
+      "id": 6,
+      "title": "Super Cook Books",
+      "authorName": "Rolling Bowley",
+      "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
+      "pageCount": 282,
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
+      "rate": 65
+    }
+  ],
+  "speakers": [
+    {
+      "id": 1,
+      "name": "Evgeniy",
+      "surname": "Khaberev",
+      "patronymic": "Sergeevich"
+    },
+    {
+      "id": 2,
+      "name": "Markus",
+      "surname": "Friendly",
+      "patronymic": "Avrelievich"
+    },
+    {
+      "id": 3,
+      "name": "Sam",
+      "surname": "Ridley",
+      "patronymic": "Petrovich"
+    },
+    {
+      "id": 4,
+      "name": "Joht",
+      "surname": "Smith",
+      "patronymic": "Ivanov"
+    }
+  ]
+}
