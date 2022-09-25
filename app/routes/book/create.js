@@ -8,7 +8,7 @@ export default Route.extend({
       authorName: "",
       pageCount: "",
       descriptionLink: "",
-      tags: "",
+      tags: [],
       coverURL: "",
     });
   },

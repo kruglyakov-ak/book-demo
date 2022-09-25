@@ -11,11 +11,7 @@ export default Component.extend({
         pageCount: this.get("pageCount"),
         descriptionLink: this.get("descriptionLink"),
         rate: Math.floor(Math.random() * 100),
-        tags: this.get("tags")
-          ? this.get("tags")
-              .split(",")
-              .map((tag) => tag.trim())
-          : "",
+        tags: this.get("tags"),
         coverURL: this.get("coverURL"),
       });
     },
@@ -34,7 +30,7 @@ export default Component.extend({
       authorName: this.get("book.authorName"),
       pageCount: this.get("book.pageCount"),
       descriptionLink: this.get("book.descriptionLink"),
-      tags: this.get("book.tags").join(", "),
+      tags: this.get("book.tags"),
       coverURL: this.get("book.coverURL"),
     });
   },
