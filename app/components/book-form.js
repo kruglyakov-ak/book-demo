@@ -25,10 +25,6 @@ export default Component.extend({
       this.set("isUploadingFile", false);
     },
 
-    resetCover() {
-      this.set("coverURL", "");
-    },
-
     changeTags(newTags) {
       this.set("tags", [...newTags]);
     },
