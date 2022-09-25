@@ -4,11 +4,11 @@ import { inject as service } from "@ember/service";
 export default Controller.extend({
   dataService: service("data"),
   actions: {
-    async saveBook(evt, book) {
+    async saveBook(evt, book, uploadData) {
       evt.preventDefault();
 
       if (evt.submitter.dataset.name === "save") {
-        await this.get("dataService").createBook(book);
+        await this.get("dataService").createBook(book, uploadData);
       }
 
       this.transitionToRoute("book.index");

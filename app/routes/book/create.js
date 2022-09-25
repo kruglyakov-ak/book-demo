@@ -12,4 +12,9 @@ export default Route.extend({
       coverURL: "",
     });
   },
+
+  setupController(controller /*, model*/) {
+    this._super(...arguments);
+    controller.set("uploadData", null);
+  },
 });

@@ -4,16 +4,25 @@ export default Component.extend({
   actions: {
     async submitForm(evt) {
       evt.preventDefault();
-      this.onsubmit(evt, {
-        id: this.get("id"),
-        title: this.get("title"),
-        authorName: this.get("authorName"),
-        pageCount: this.get("pageCount"),
-        descriptionLink: this.get("descriptionLink"),
-        rate: Math.floor(Math.random() * 100),
-        tags: this.get("tags"),
-        coverURL: this.get("coverURL"),
-      });
+
+      this.set("isUploadingFile", true);
+      const uploadData = this.get("uploadData");
+      await this.onsubmit(
+        evt,
+        {
+          id: this.get("id"),
+          title: this.get("title"),
+          authorName: this.get("authorName"),
+          pageCount: this.get("pageCount"),
+          descriptionLink: this.get("descriptionLink"),
+          rate: Math.floor(Math.random() * 100),
+          tags: this.get("tags"),
+          coverURL: "",
+        },
+        uploadData
+      );
+
+      this.set("isUploadingFile", false);
     },
 
     resetCover() {
@@ -21,7 +30,11 @@ export default Component.extend({
     },
 
     changeTags(newTags) {
-      this.set('tags', [...newTags]);
+      this.set("tags", [...newTags]);
+    },
+
+    changeUploadData(uploadData) {
+      this.set("uploadData", uploadData);
     },
   },
 
