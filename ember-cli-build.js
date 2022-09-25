@@ -23,5 +23,14 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('vendor/tagsinput.css');
+  app.import('vendor/popper.min.js');
+  app.import('vendor/tagsinput.js');
+  app.import('vendor/jquery-ui.js');
+  app.import('vendor/jquery.flexberry.downloadFile.js');
+  app.import('vendor/jquery.blobajaxtransport.js');
+  // app.import('node_modules/blueimp-file-upload/js/jquery.fileupload.js');
+
+
   return app.toTree();
 };
