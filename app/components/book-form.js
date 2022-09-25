@@ -22,9 +22,6 @@ export default Component.extend({
 
     changeTags(newTags) {
       this.set('tags', [...newTags]);
-
-      // eslint-disable-next-line no-console
-      console.log(this.get('tags'));
     },
   },
 
