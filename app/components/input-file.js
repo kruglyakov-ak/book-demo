@@ -1,35 +1,38 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { set } from '@ember/object';
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import { set } from "@ember/object";
 
 export default Component.extend({
-  isFileChoosen: computed('uploadData', function () {
-    return this.get('uploadData') && this.get('uploadData').files.length;
+  isFileChoosen: computed("uploadData", function () {
+    return this.get("uploadData") && this.get("uploadData").files.length;
   }),
 
-  ifRemoveButtonDisabled: computed('isFileChoosen', function () {
-    return !this.get('isFileChoosen');
+  ifRemoveButtonDisabled: computed("isFileChoosen", function () {
+    return !this.get("isFileChoosen");
   }),
 
-  fileName: computed('isFileChoosen', function () {
-    return this.get('isFileChoosen') ? this.get('uploadData').files[0].name : 'Выберите файл';
+  fileName: computed("isFileChoosen", function () {
+    return this.get("isFileChoosen")
+      ? this.get("uploadData").files[0].name
+      : this.get("coverURL")
+      ? this.get("coverURL")
+      : "Выберите файл";
   }),
 
   didInsertElement() {
     this._super(...arguments);
-
     const onFileAdd = (e, uploadData) => {
-      this.get('uploadDataChanged')(uploadData);
+      this.get("uploadDataChanged")(uploadData);
     };
 
-    if (!this.$('.custom-file-input').fileupload('instance')) {
+    if (!this.$(".custom-file-input").fileupload("instance")) {
       // Initialize jQuery fileupload plugin (https://github.com/blueimp/jQuery-File-Upload/wiki/API).
-      this.$('.custom-file-input').fileupload({
+      this.$(".custom-file-input").fileupload({
         // Disable autoUpload.
         autoUpload: false,
 
         // Type of data that is expected back from the server.
-        dataType: 'json',
+        dataType: "json",
 
         // Maximum number of files to be selected and uploaded.
         maxNumberOfFiles: 1,
@@ -41,21 +44,21 @@ export default Component.extend({
         dropZone: null,
 
         // File add handler.
-        add: onFileAdd
+        add: onFileAdd,
       });
     }
   },
 
   willDestroyElement() {
     this._super(...arguments);
-    if (this.$('.custom-file-input').fileupload('instance')) {
-      this.$('.custom-file-input').fileupload('destroy');
+    if (this.$(".custom-file-input").fileupload("instance")) {
+      this.$(".custom-file-input").fileupload("destroy");
     }
   },
 
   actions: {
     removeFile() {
-      set(this, 'uploadData', null);
-    }
-  }
+      set(this, "uploadData", null);
+    },
+  },
 });
