@@ -7,4 +7,9 @@ export default Route.extend({
   model({ id }) {
     return this.get("dataService").getBook(id);
   },
+
+  setupController(controller /*, model*/) {
+    this._super(...arguments);
+    controller.set("uploadData", null);
+  },
 });

@@ -17,7 +17,7 @@ export default Component.extend({
           descriptionLink: this.get("descriptionLink"),
           rate: Math.floor(Math.random() * 100),
           tags: this.get("tags"),
-          coverURL: "",
+          coverURL: this.get("coverURL"),
         },
         uploadData
       );
