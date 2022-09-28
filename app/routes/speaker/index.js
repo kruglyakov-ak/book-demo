@@ -1,4 +1,4 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 
 export default Route.extend({
@@ -8,11 +8,18 @@ export default Route.extend({
       refreshModel: true,
     },
   },
-  async model({ search }) {
+  async model() {
+    return {
+      isLoading: true,
+    };
+  },
+
+  setupController(controller) {
+    this._super(...arguments);
     let promise = new Promise(async (resolve, reject) => {
         try {
-          let speakers = search
-            ? await this.get("dataService").getSpeakers(search)
+          let speakers = controller.get("search")
+            ? await this.get("dataService").getSpeakers(controller.get("search"))
             : await this.get("dataService").getSpeakers();
           resolve(speakers);
         } catch (e) {
@@ -29,21 +36,15 @@ export default Route.extend({
       });
 
     this.set("modelPromise", promise);
-    return {
-      isLoading: true,
-    };
-  },
 
-  setupController(controller) {
-    this._super(...arguments);
-    if (this.get('modelPromise')) {
-      controller.set('isLoading', true);
+    if (this.get("modelPromise")) {
+      controller.set("isLoading", true);
     }
   },
 
   actions: {
     refreshRoute() {
       this.refresh();
-    }
-  }
+    },
+  },
 });

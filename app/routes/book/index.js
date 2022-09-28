@@ -41,6 +41,8 @@ export default Route.extend({
     //     }
     //   });
 
+    // this.set("modelPromise", promise);
+
     // if (this.get("modelPromise")) {
     //   controller.set("isLoading", true);
     // }
