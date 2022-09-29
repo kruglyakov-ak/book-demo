@@ -13,8 +13,9 @@ Router.map(function () {
   });
   this.route("speaker", { path: "speakers" }, function () {
     this.route("edit", { path: ":id/edit" });
-    this.route('create');
+    this.route("create");
   });
+  this.route("meeting", { path: "meetings" }, function () {});
   this.route("error", { path: ":error" });
   this.route("404", { path: "*path" });
 });
