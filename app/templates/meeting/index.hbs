@@ -119,7 +119,9 @@
       </div>
     </div>
 
-    {{meeting-item class="border border-dark rounded p-4 mb-4"}}
+    {{#each model as |meeting|}}
+      {{meeting-item meeting=meeting class="border border-dark rounded p-4 mb-4"}}
+    {{/each}}
 
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">

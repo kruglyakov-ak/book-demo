@@ -6,7 +6,7 @@
         type="text"
         placeholder="Дата встречи"
         class="form-control meeting-date"
-        value="24.10.2020"
+        value={{meeting.date}}
         disabled="disabled"
       />
       <div class="input-group-append">
@@ -70,5 +70,7 @@
 </div>
 <h4>Список докладов</h4>
 <ul class="list-group">
-  {{report-item class="list-group-item" tagName='li'}}
+  {{#each meeting.reports as |report|}}
+    {{report-item report=report class="list-group-item" tagName="li"}}
+  {{/each}}
 </ul>
