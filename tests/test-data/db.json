@@ -5,10 +5,7 @@
       "title": "The Clean Coder",
       "authorName": "Robert Martin",
       "pageCount": 567,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 89,
       "descriptionLink": "",
       "coverURL": ""
@@ -19,10 +16,7 @@
       "authorName": "C.S. Lewis",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 963,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 75
     },
     {
@@ -31,10 +25,7 @@
       "authorName": "Robert Martin",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 496,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 18
     },
     {
@@ -43,10 +34,7 @@
       "authorName": "Erry Books",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 1819,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 36
     },
     {
@@ -55,10 +43,7 @@
       "authorName": "Colley Printley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 198,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 78
     },
     {
@@ -67,10 +52,7 @@
       "authorName": "Rolling Bowley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 282,
-      "tags": [
-        "суперкгнига",
-        "программирование"
-      ],
+      "tags": ["суперкгнига", "программирование"],
       "rate": 65
     }
   ],
@@ -98,6 +80,72 @@
       "name": "Joht",
       "surname": "Smith",
       "patronymic": "Ivanov"
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "date": "2020-10-24T14:04:11.041Z"
+    },
+    {
+      "id": 2,
+      "date": "2020-11-03T14:04:11.041Z"
+    },
+    {
+      "id": 3,
+      "date": "2020-11-12T14:04:11.041Z"
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "meetingId": 1,
+      "rate": 20,
+      "URLPresentation": "",
+      "URLVideo": "",
+      "bookId": 1,
+      "speakerId": 1,
+      "review": ""
+    },
+    {
+      "id": 2,
+      "meetingId": 1,
+      "rate": 20,
+      "URLPresentation": "",
+      "URLVideo": "",
+      "bookId": 1,
+      "speakerId": 1,
+      "review": ""
+    },
+    {
+      "id": 3,
+      "meetingId": 1,
+      "rate": 20,
+      "URLPresentation": "",
+      "URLVideo": "",
+      "bookId": 1,
+      "speakerId": 1,
+      "review": ""
+    },
+    {
+      "id": 4,
+      "meetingId": 2,
+      "rate": 20,
+      "URLPresentation": "",
+      "URLVideo": "",
+      "bookId": 2,
+      "speakerId": 2,
+      "review": ""
+    },
+    {
+      "id": 5,
+      "meetingId": 2,
+      "rate": 20,
+      "URLPresentation": "",
+      "URLVideo": "",
+      "bookId": 2,
+      "speakerId": 2,
+      "review": ""
     }
   ]
 }
