@@ -2,7 +2,6 @@
   "books": [
     {
       "id": 1,
-      "type": "book",
       "title": "The Clean Coder",
       "authorName": "Robert Martin",
       "pageCount": 567,
@@ -16,7 +15,6 @@
     },
     {
       "id": 2,
-      "type": "book",
       "title": "Agile Principles, Patterns, and Practices in C#",
       "authorName": "C.S. Lewis",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
@@ -29,9 +27,8 @@
     },
     {
       "id": 3,
-      "type": "book",
       "title": "The Chronicles of Narnia",
-      "authorName": "Edgadxgd",
+      "authorName": "Robert Martin",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 496,
       "tags": [
@@ -42,7 +39,6 @@
     },
     {
       "id": 4,
-      "type": "book",
       "title": "25 moments of something",
       "authorName": "Erry Books",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
@@ -55,7 +51,6 @@
     },
     {
       "id": 5,
-      "type": "book",
       "title": "Awsome Book for Programmers",
       "authorName": "Colley Printley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
@@ -68,7 +63,6 @@
     },
     {
       "id": 6,
-      "type": "book",
       "title": "Super Cook Books",
       "authorName": "Rolling Bowley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
@@ -83,28 +77,24 @@
   "speakers": [
     {
       "id": 1,
-      "type": "speaker",
       "name": "Evgeniy",
       "surname": "Khaberev",
       "patronymic": "Sergeevich"
     },
     {
       "id": 2,
-      "type": "speaker",
       "name": "Markus",
       "surname": "Friendly",
       "patronymic": "Avrelievich"
     },
     {
       "id": 3,
-      "type": "speaker",
       "name": "Sam",
       "surname": "Ridley",
       "patronymic": "Petrovich"
     },
     {
       "id": 4,
-      "type": "speaker",
       "name": "Joht",
       "surname": "Smith",
       "patronymic": "Ivanov"
