@@ -7,6 +7,7 @@
           class="btn btn-outline-primary my-2"
           type="button"
           title="Добавить встречу"
+          onclick={{action "clickOnCreateButton"}}
         >
           <svg
             viewBox="0 0 16 16"
@@ -120,7 +121,11 @@
     </div>
 
     {{#each model as |meeting|}}
-      {{meeting-item meeting=meeting class="border border-dark rounded p-4 mb-4"}}
+      {{meeting-item
+        class="border border-dark rounded p-4 mb-4"
+        meeting=meeting
+        editAction=(action "clickOnEditButton" meeting.id)
+      }}
     {{/each}}
 
     <nav aria-label="Page navigation example">

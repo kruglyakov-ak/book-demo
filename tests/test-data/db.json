@@ -5,7 +5,10 @@
       "title": "The Clean Coder",
       "authorName": "Robert Martin",
       "pageCount": 567,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 89,
       "descriptionLink": "",
       "coverURL": ""
@@ -16,7 +19,10 @@
       "authorName": "C.S. Lewis",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 963,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 75
     },
     {
@@ -25,7 +31,10 @@
       "authorName": "Robert Martin",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 496,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 18
     },
     {
@@ -34,7 +43,10 @@
       "authorName": "Erry Books",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 1819,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 36
     },
     {
@@ -43,7 +55,10 @@
       "authorName": "Colley Printley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 198,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 78
     },
     {
@@ -52,7 +67,10 @@
       "authorName": "Rolling Bowley",
       "descriptionLink": "https://www.ozon.ru/category/knigi-16500/",
       "pageCount": 282,
-      "tags": ["суперкгнига", "программирование"],
+      "tags": [
+        "суперкгнига",
+        "программирование"
+      ],
       "rate": 65
     }
   ],

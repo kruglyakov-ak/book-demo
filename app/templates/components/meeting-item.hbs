@@ -36,7 +36,7 @@
     <button
       type="button"
       class="btn btn-edit"
-      onclick="javascript:location='edit-meeting.html'"
+      onclick={{editAction}}
     >
       <svg
         viewBox="0 0 16 16"
@@ -50,7 +50,7 @@
         ></path>
       </svg>
     </button>
-    <button type="button" class="btn btn-trash">
+    <button type="button" class="btn btn-trash" onClick={{action "deleteMeeting" meeting}}>
       <svg
         viewBox="0 0 16 16"
         class="bi bi-trash card-button"
