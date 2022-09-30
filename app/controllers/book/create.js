@@ -7,7 +7,6 @@ export default Controller.extend({
 
       if (evt.submitter.dataset.name === "save") {
         let newBook = await this.get("store").createRecord("book", book);
-        newBook.serialize();
         await newBook.save();
       }
 

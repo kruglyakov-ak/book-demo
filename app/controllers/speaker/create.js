@@ -4,8 +4,10 @@ export default Controller.extend({
   actions: {
     async saveSpeaker(evt, speaker) {
       if (evt.submitter.dataset.name === "save") {
-        let newSpeaker = await this.get("store").createRecord("speaker", speaker);
-        newSpeaker.serialize();
+        let newSpeaker = await this.get("store").createRecord(
+          "speaker",
+          speaker
+        );
         await newSpeaker.save();
       }
 
