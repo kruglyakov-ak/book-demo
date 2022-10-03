@@ -6,7 +6,7 @@
         type="text"
         placeholder="Дата встречи"
         class="form-control meeting-date"
-        value={{meeting.date}}
+        value={{moment-format meeting.date "Do MMMM YYYY"}}
         disabled="disabled"
       />
       <div class="input-group-append">
