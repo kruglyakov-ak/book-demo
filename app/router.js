@@ -18,6 +18,10 @@ Router.map(function () {
   this.route("meeting", { path: "meetings" }, function () {
     this.route('edit', { path: ":id/edit" });
     this.route('create');
+
+    this.route('report', { path: ":id/reports" }, function() {
+      this.route('create');
+    });
   });
   this.route("error", { path: ":error" });
   this.route("404", { path: "*path" });

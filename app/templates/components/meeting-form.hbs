@@ -43,7 +43,7 @@
             <h4>Список докладов</h4>
           </div>
           <div class="col-md-auto">
-            <button type="button" class="btn btn-edit">
+            {{#link-to "meeting.report.create" meeting.id class="btn btn-edit"}}
               <svg
                 viewBox="0 0 16 16"
                 class="bi bi-plus-square card-button"
@@ -57,7 +57,7 @@
                   d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
                 ></path>
               </svg>
-            </button>
+            {{/link-to}}
           </div>
         </div>
         <ul class="list-group">
