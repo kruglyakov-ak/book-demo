@@ -24,44 +24,43 @@
       </div>
       <div class="col-md-3 align-top">
         <h5>Спикер</h5>
-        <select
+        {{#power-select
           class="selectpicker form-control dropdown-filter-control"
-          data-live-search="true"
-          data-size="5"
-          title="Спикер..."
-        >
-          <option>Фамилия имя</option>
-          <option>Фамилия имя</option>
-          <option>Фамилия имя</option>
-          <option>Фамилия имя</option>
-          <option>Фамилия имя</option>
-        </select>
+          options=model.speakers
+          selected=selectedSpeaker
+          onchange=(action "changeSpeaker")
+          searchField="fullName"
+          allowClear=true
+          as |speaker|
+        }}
+          {{speaker.fullName}}
+        {{/power-select}}
       </div>
       <div class="col-md-3">
         <h5>Книга</h5>
-        <select
+        {{#power-select
           class="selectpicker form-control dropdown-filter-control"
-          data-live-search="true"
-          data-size="5"
-          title="Книга..."
-        >
-          <option>Название книги</option>
-          <option>Название книги</option>
-          <option>Название книги</option>
-          <option>Название книги</option>
-          <option>Название книги</option>
-        </select>
+          options=model.books
+          selected=selectedBook
+          onchange=(action "changeBook")
+          searchField="title"
+          allowClear=true
+          as |book|
+        }}
+          {{book.title}}
+        {{/power-select}}
       </div>
       <div class="col-md-3">
         <h5>Дата встречи</h5>
         <div class="form-group py-2 my-0">
           <div class="datepicker date input-group p-0 w-100">
-            <input
-              type="text"
+            {{input
+              type="date"
               placeholder="Дата..."
               class="form-control"
               id="meetingDateFilter"
-            />
+              value=date
+            }}
             <div class="input-group-append">
               <span class="input-group-text px-4">
                 <svg
@@ -103,7 +102,8 @@
         <button
           type="button"
           class="btn btn-outline-secondary my-2"
-          disabled="disabled"
+          onclick={{action "resetFilters"}}
+          disabled={{hasQuery}}
         >
           <svg
             viewBox="0 0 16 16"
@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    {{#each model as |meeting|}}
+    {{#each model.meetings as |meeting|}}
       {{meeting-item
         class="border border-dark rounded p-4 mb-4"
         meeting=meeting
