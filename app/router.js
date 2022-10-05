@@ -21,6 +21,7 @@ Router.map(function () {
 
     this.route('report', function() {
       this.route('create', { path: ":id/create" });
+      this.route('edit', { path: ":id/edit/:report_id" });
     });
   });
   this.route("error", { path: ":error" });
