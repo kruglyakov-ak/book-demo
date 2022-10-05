@@ -59,7 +59,7 @@
               placeholder="Дата..."
               class="form-control"
               id="meetingDateFilter"
-              value=date
+              value=dateValue
             }}
             <div class="input-group-append">
               <span class="input-group-text px-4">
@@ -86,7 +86,11 @@
         </div>
       </div>
       <div class="col-md-auto text-right col-filter">
-        <button type="button" class="btn btn-outline-primary my-2">
+        <button
+          type="button"
+          class="btn btn-outline-primary my-2"
+          onclick={{action "filterReports"}}
+        >
           <svg
             viewBox="0 0 16 16"
             class="bi bi-funnel card-button"
@@ -130,19 +134,33 @@
 
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" aria-label="Previous">
+        <li class={{if isPrevActive "page-item" "page-item disabled"}}>
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Previous"
+            onclick={{action "clickPrev"}}
+          >
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li class="page-item active" aria-current="page"><a
+        {{#each pages as |page|}}
+          <li class="page-item" aria-current="page">
+            {{link-to
+              page
+              "meeting"
+              (query-params page=page)
+              class="page-link"
+            }}
+          </li>
+        {{/each}}
+        <li class={{if isNextActive "page-item" "page-item disabled"}}>
+          <a
             class="page-link"
             href="#"
-          >1 <span class="sr-only">(текущая)</span></a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
+            aria-label="Next"
+            onclick={{action "clickNext"}}
+          >
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

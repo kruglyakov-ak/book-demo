@@ -17,8 +17,10 @@ export default Route.extend({
     },
   },
 
-  model({ book, speaker, date }) {
-    const query = {};
+  model({ book, speaker, date, page }) {
+    const query = {
+      _page: page,
+    };
 
     if (book) {
       query.book = book;
