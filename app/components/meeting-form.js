@@ -11,6 +11,10 @@ export default Component.extend({
         reports: this.get("reports"),
       });
     },
+
+    async deleteReport(report) {
+      await report.destroyRecord();
+    },
   },
 
   didReceiveAttrs() {
