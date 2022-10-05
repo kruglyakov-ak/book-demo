@@ -6,7 +6,13 @@ export default Route.extend({
       refreshModel: true,
     },
   },
-  async model() {
-    return this.get("store").findAll("speaker");
+  async model({ search }) {
+    const query = {};
+
+    if (search) {
+      query.q = search;
+    }
+
+    return this.get("store").query("speaker", query);
   },
 });
