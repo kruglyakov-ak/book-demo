@@ -11,7 +11,7 @@ export default Controller.extend({
         bookModel.set("authorName", book.authorName);
         bookModel.set("pageCount", book.pageCount);
         bookModel.set("descriptionLink", book.descriptionLink);
-        bookModel.set("rate", Math.floor(Math.random() * 100));
+        bookModel.set("rate", Math.floor(Math.random() * 5));
         bookModel.set("tags", book.tags);
         bookModel.set("coverURL", book.coverURL);
 
