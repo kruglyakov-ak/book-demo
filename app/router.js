@@ -19,8 +19,8 @@ Router.map(function () {
     this.route('edit', { path: ":id/edit" });
     this.route('create');
 
-    this.route('report', { path: ":id/reports" }, function() {
-      this.route('create');
+    this.route('report', function() {
+      this.route('create', { path: ":id/create" });
     });
   });
   this.route("error", { path: ":error" });

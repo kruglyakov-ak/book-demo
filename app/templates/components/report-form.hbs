@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="htop">
     <h2 class="text-center">Редактирование доклада</h2>
-    <form class="edit-form">
+    <form class="edit-form" onsubmit={{action "submitForm"}}>
       <div class="form-group row">
         <label for="reportDate" class="col-sm-2 col-form-label text-right">Дата
           доклада</label>
@@ -12,7 +12,7 @@
               placeholder="Дата..."
               class="form-control form-control-lg"
               id="reportDate"
-              value="24.10.2020"
+              value={{moment-format model.report.date "Do MMMM YYYY"}}
               disabled="disabled"
             />
             <div class="input-group-append">
@@ -43,14 +43,15 @@
         <label for="inputMark" class="col-sm-2 col-form-label text-right">Оценка
           книги</label>
         <div class="col-sm-10">
-          <input
+          {{input
             type="number"
             min="1"
             max="5"
             class="form-control form-control-lg"
             id="inputMark"
             placeholder="Введите оценку"
-          />
+            value=model.report.rate
+          }}
         </div>
       </div>
       <div class="form-group row">
@@ -59,12 +60,13 @@
           class="col-sm-2 col-form-label text-right big"
         >URL презентации</label>
         <div class="col-sm-10">
-          <input
+          {{input
             type="url"
             class="form-control form-control-lg"
             id="inputPresentation"
             placeholder="Введите URL презентации"
-          />
+            value=model.report.URLPresentation
+          }}
         </div>
       </div>
       <div class="form-group row">
@@ -73,12 +75,13 @@
           class="col-sm-2 col-form-label text-right big"
         >URL видео</label>
         <div class="col-sm-10">
-          <input
+          {{input
             type="url"
             class="form-control form-control-lg"
             id="inputVideo"
             placeholder="Введите URL видео"
-          />
+            value=model.report.URLVideo
+          }}
         </div>
       </div>
       <div class="form-group row">
@@ -87,21 +90,17 @@
           class="col-sm-2 col-form-label text-right big"
         >Книга</label>
         <div class="col-sm-10">
-          <select
+          {{#power-select
             class="selectpicker form-control form-control-lg"
-            id="inputBook"
-            data-live-search="true"
-            data-size="5"
-            title="Выберите книгу..."
-          >
-            <option>Книга 1</option>
-            <option>Книга 2</option>
-            <option>Книга 3</option>
-            <option>Книга 4</option>
-            <option>Книга 5</option>
-            <option>Книга 6</option>
-            <option>Книга 7</option>
-          </select>
+            options=model.books
+            selected=selectedBook
+            onchange=changeBook
+            searchField="title"
+            allowClear=true
+            as |book|
+          }}
+            {{book.title}}
+          {{/power-select}}
         </div>
       </div>
       <div class="form-group row">
@@ -110,20 +109,17 @@
           class="col-sm-2 col-form-label text-right big"
         >Спикер</label>
         <div class="col-sm-10">
-          <select
+          {{#power-select
             class="selectpicker form-control form-control-lg"
-            id="inputSpeaker"
-            data-live-search="true"
-            data-size="5"
-            title="Выберите спикера..."
-          >
-            <option>Фамилия Имя 1</option>
-            <option>Фамилия Имя 2</option>
-            <option>Фамилия Имя 3</option>
-            <option>Фамилия Имя 4</option>
-            <option>Фамилия Имя 5</option>
-            <option>Фамилия Имя 6</option>
-          </select>
+            options=model.speakers
+            selected=selectedSpeaker
+            onchange=changeSpeaker
+            searchField="fullName"
+            allowClear=true
+            as |speaker|
+          }}
+            {{speaker.fullName}}
+          {{/power-select}}
         </div>
       </div>
       <div class="form-group row">
@@ -138,7 +134,8 @@
             id="inputPatronymic"
             placeholder="Введите рецензию"
             rows="4"
-          ></textarea>
+            oninput={{changeReview}}
+          >{{model.report.review}}</textarea>
         </div>
       </div>
       <div class="form-group row">
@@ -146,6 +143,7 @@
           <button
             type="submit"
             class="btn btn-primary btn-lg"
+            data-name="save"
           >Сохранить</button>
           <button
             type="submit"
