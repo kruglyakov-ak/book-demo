@@ -9,7 +9,16 @@ export default Route.extend({
       refreshModel: true,
     },
   },
-  model() {
-    return this.get("store").findAll("book");
+  model({search, searchByTags}) {
+    const query = {};
+
+    if (search) {
+      query.q = search;
+    }
+
+    if (searchByTags) {
+      query.tags_like = searchByTags;
+    }
+    return this.get("store").query("book", query);
   },
 });
