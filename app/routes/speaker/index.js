@@ -1,49 +1,18 @@
-import Route from '@ember/routing/route';
-import { inject as service } from "@ember/service";
+import Route from "@ember/routing/route";
 
 export default Route.extend({
-  dataService: service("data"),
   queryParams: {
     search: {
       refreshModel: true,
     },
   },
   async model({ search }) {
-    let promise = new Promise(async (resolve, reject) => {
-        try {
-          let speakers = search
-            ? await this.get("dataService").getSpeakers(search)
-            : await this.get("dataService").getSpeakers();
-          resolve(speakers);
-        } catch (e) {
-          reject("Connection failed");
-        }
-    })
-      .then((speakers) => {
-        this.set("controller.model", speakers);
-      })
-      .finally(() => {
-        if (promise === this.get("modelPromise")) {
-          this.set("controller.isLoading", false);
-        }
-      });
+    const query = {};
 
-    this.set("modelPromise", promise);
-    return {
-      isLoading: true,
-    };
-  },
-
-  setupController(controller) {
-    this._super(...arguments);
-    if (this.get('modelPromise')) {
-      controller.set('isLoading', true);
+    if (search) {
+      query.q = search;
     }
-  },
 
-  actions: {
-    refreshRoute() {
-      this.refresh();
-    }
-  }
+    return this.get("store").query("speaker", query);
+  },
 });

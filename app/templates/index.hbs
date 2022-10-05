@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="row align-items-center h-100 home-page-nav">
     <div class="col">
-      <a href="meetings.html" class="card text-center">
+       {{#link-to "meeting.index" class="card text-center"}}
         <div class="card-body">
           <svg
             viewBox="0 0 16 16"
@@ -16,7 +16,7 @@
           </svg>
           <h3>Встречи клуба</h3>
         </div>
-      </a>
+      {{/link-to}}
     </div>
     <div class="col">
       {{#link-to "book.index" class="card text-center"}}

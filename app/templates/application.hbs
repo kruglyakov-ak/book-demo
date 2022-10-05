@@ -30,15 +30,17 @@
         {{/link-to}}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="meetings.html">Встречи клуба</a>
+        {{#link-to "meeting.index" class="nav-link"}}
+          Встречи клуба
+        {{/link-to}}
       </li>
       <li class="nav-item">
-        {{#link-to "book" class="nav-link"}}
+        {{#link-to "book.index" class="nav-link"}}
           Книги
         {{/link-to}}
       </li>
       <li class="nav-item">
-        {{#link-to "speaker" class="nav-link"}}
+        {{#link-to "speaker.index" class="nav-link"}}
           Спикеры
         {{/link-to}}
       </li>
@@ -67,4 +69,3 @@
     <span>&copy; New Platform Ltd., 2022</span>
   </div>
 </footer>
-

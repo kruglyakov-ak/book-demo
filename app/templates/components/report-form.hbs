@@ -1,0 +1,156 @@
+<div class="container h-100">
+  <div class="htop">
+    <h2 class="text-center">Редактирование доклада</h2>
+    <form class="edit-form" onsubmit={{action "submitForm"}}>
+      <div class="form-group row">
+        <label for="reportDate" class="col-sm-2 col-form-label text-right">Дата
+          доклада</label>
+        <div class="col-sm-10">
+          <div class="datepicker datepicker-meeting date input-group p-0">
+            <input
+              type="text"
+              placeholder="Дата..."
+              class="form-control form-control-lg"
+              id="reportDate"
+              value={{moment-format model.report.date "Do MMMM YYYY"}}
+              disabled="disabled"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text px-4">
+                <svg
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-clock"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputMark" class="col-sm-2 col-form-label text-right">Оценка
+          книги</label>
+        <div class="col-sm-10">
+          {{input
+            type="number"
+            min="1"
+            max="5"
+            class="form-control form-control-lg"
+            id="inputMark"
+            placeholder="Введите оценку"
+            value=model.report.rate
+          }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
+          for="inputPresentation"
+          class="col-sm-2 col-form-label text-right big"
+        >URL презентации</label>
+        <div class="col-sm-10">
+          {{input
+            type="url"
+            class="form-control form-control-lg"
+            id="inputPresentation"
+            placeholder="Введите URL презентации"
+            value=model.report.URLPresentation
+          }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
+          for="inputVideo"
+          class="col-sm-2 col-form-label text-right big"
+        >URL видео</label>
+        <div class="col-sm-10">
+          {{input
+            type="url"
+            class="form-control form-control-lg"
+            id="inputVideo"
+            placeholder="Введите URL видео"
+            value=model.report.URLVideo
+          }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
+          for="inputBook"
+          class="col-sm-2 col-form-label text-right big"
+        >Книга</label>
+        <div class="col-sm-10">
+          {{#power-select
+            class="selectpicker form-control form-control-lg"
+            options=model.books
+            selected=selectedBook
+            onchange=changeBook
+            searchField="title"
+            allowClear=true
+            as |book|
+          }}
+            {{book.title}}
+          {{/power-select}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
+          for="inputSpeaker"
+          class="col-sm-2 col-form-label text-right big"
+        >Спикер</label>
+        <div class="col-sm-10">
+          {{#power-select
+            class="selectpicker form-control form-control-lg"
+            options=model.speakers
+            selected=selectedSpeaker
+            onchange=changeSpeaker
+            searchField="fullName"
+            allowClear=true
+            as |speaker|
+          }}
+            {{speaker.fullName}}
+          {{/power-select}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label
+          for="inputReview"
+          class="col-sm-2 col-form-label text-right big"
+        >Рецензия</label>
+        <div class="col-sm-10">
+          <textarea
+            id="inputReview"
+            class="form-control form-control-lg"
+            id="inputPatronymic"
+            placeholder="Введите рецензию"
+            rows="4"
+            oninput={{changeReview}}
+          >{{model.report.review}}</textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12 text-right">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            data-name="save"
+          >Сохранить</button>
+          <button
+            type="submit"
+            class="btn btn-outline-secondary btn-lg"
+          >Отмена</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

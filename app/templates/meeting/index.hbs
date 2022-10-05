@@ -1,0 +1,170 @@
+<div class="container h-100">
+  <div class="htop">
+    <h2 class="text-center">Встречи клуба</h2>
+    <div class="form-row navbar-panel justify-content-between align-items-end">
+      <div class="col-md-1">
+        <button
+          class="btn btn-outline-primary my-2"
+          type="button"
+          title="Добавить встречу"
+          onclick={{action "clickOnCreateButton"}}
+        >
+          <svg
+            viewBox="0 0 16 16"
+            class="bi bi-plus card-button"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="col-md-3 align-top">
+        <h5>Спикер</h5>
+        {{#power-select
+          class="selectpicker form-control dropdown-filter-control"
+          options=model.speakers
+          selected=selectedSpeaker
+          onchange=(action "changeSpeaker")
+          searchField="fullName"
+          allowClear=true
+          as |speaker|
+        }}
+          {{speaker.fullName}}
+        {{/power-select}}
+      </div>
+      <div class="col-md-3">
+        <h5>Книга</h5>
+        {{#power-select
+          class="selectpicker form-control dropdown-filter-control"
+          options=model.books
+          selected=selectedBook
+          onchange=(action "changeBook")
+          searchField="title"
+          allowClear=true
+          as |book|
+        }}
+          {{book.title}}
+        {{/power-select}}
+      </div>
+      <div class="col-md-3">
+        <h5>Дата встречи</h5>
+        <div class="form-group py-2 my-0">
+          <div class="datepicker date input-group p-0 w-100">
+            {{input
+              type="date"
+              placeholder="Дата..."
+              class="form-control"
+              id="meetingDateFilter"
+              value=dateValue
+            }}
+            <div class="input-group-append">
+              <span class="input-group-text px-4">
+                <svg
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-clock"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-auto text-right col-filter">
+        <button
+          type="button"
+          class="btn btn-outline-primary my-2"
+          onclick={{action "filterReports"}}
+        >
+          <svg
+            viewBox="0 0 16 16"
+            class="bi bi-funnel card-button"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-secondary my-2"
+          onclick={{action "resetFilters"}}
+          disabled={{hasQuery}}
+        >
+          <svg
+            viewBox="0 0 16 16"
+            class="bi bi-x card-button"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {{#each model.meetings as |meeting|}}
+      {{meeting-item
+        class="border border-dark rounded p-4 mb-4"
+        meeting=meeting
+        editAction=(action "clickOnEditButton" meeting.id)
+      }}
+    {{/each}}
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class={{if isPrevActive "page-item" "page-item disabled"}}>
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Previous"
+            onclick={{action "clickPrev"}}
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {{#each pages as |page|}}
+          <li class="page-item" aria-current="page">
+            {{link-to
+              page
+              "meeting"
+              (query-params page=page)
+              class="page-link"
+            }}
+          </li>
+        {{/each}}
+        <li class={{if isNextActive "page-item" "page-item disabled"}}>
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Next"
+            onclick={{action "clickNext"}}
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

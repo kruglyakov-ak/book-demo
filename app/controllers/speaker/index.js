@@ -1,18 +1,11 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
 
 export default Controller.extend({
-  dataService: service("data"),
   search: "",
 
   actions: {
-    async deleteSpeaker({ id }) {
-      try {
-        await this.get("dataService").deleteSpeaker(id);
-        this.send("refreshRoute");
-      } catch (error) {
-        this.transitionToRoute("error", { error: "Connections failed" });
-      }
+    async deleteSpeaker(speaker) {
+      await speaker.destroyRecord();
     },
 
     clickOnCreateButton() {
