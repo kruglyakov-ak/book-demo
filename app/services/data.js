@@ -43,6 +43,42 @@ export default Service.extend({
     });
   },
 
+  _uploadBookData(savedBook, uploadData) {
+    return new Promise(async (resolve, reject) => {
+      uploadData.url = `${ENV.fileUploadURL}`;
+      uploadData.url = `${ENV.fileUploadURL}`;
+      // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
+      uploadData
+        .submit()
+        .done(async (result /*, textStatus, jqXhr*/) => {
+          try {
+            const dataToUpload = {
+              entityName: "books",
+              id: savedBook.id,
+              fileName: result.filename,
+            };
+
+            await fetch(`${ENV.backendURL}/saveURL`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(dataToUpload),
+            });
+
+            // eslint-disable-next-line no-console
+            console.log("Ok");
+            resolve();
+          } catch (e) {
+            reject(e);
+          }
+        })
+        .fail((jqXhr, textStatus, errorThrown) => {
+          reject(errorThrown);
+        });
+    });
+  },
+
   async createBook(book, uploadData) {
     return new Promise(async (resolve, reject) => {
       try {
@@ -60,36 +96,7 @@ export default Service.extend({
           resolve();
         }
 
-        uploadData.url = `${ENV.fileUploadURL}`;
-        // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
-        uploadData
-          .submit()
-          .done(async (result /*, textStatus, jqXhr*/) => {
-            try {
-              const dataToUpload = {
-                entityName: "books",
-                id: savedBook.id,
-                fileName: result.filename,
-              };
-
-              await fetch(`${ENV.backendURL}/saveURL`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dataToUpload),
-              });
-
-              // eslint-disable-next-line no-console
-              console.log("Ok");
-              resolve();
-            } catch (e) {
-              reject(e);
-            }
-          })
-          .fail((jqXhr, textStatus, errorThrown) => {
-            reject(errorThrown);
-          });
+        this._uploadBookData(savedBook, uploadData);
       } catch (e) {
         reject(e);
       }
@@ -114,36 +121,7 @@ export default Service.extend({
           resolve();
         }
 
-        uploadData.url = `${ENV.fileUploadURL}`;
-        // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
-        uploadData
-          .submit()
-          .done(async (result /*, textStatus, jqXhr*/) => {
-            try {
-              const dataToUpload = {
-                entityName: "books",
-                id: savedBook.id,
-                fileName: result.filename,
-              };
-
-              await fetch(`${ENV.backendURL}/saveURL`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dataToUpload),
-              });
-
-              // eslint-disable-next-line no-console
-              console.log("Ok");
-              resolve();
-            } catch (e) {
-              reject(e);
-            }
-          })
-          .fail((jqXhr, textStatus, errorThrown) => {
-            reject(errorThrown);
-          });
+        this._uploadBookData(savedBook, uploadData);
       } catch (e) {
         reject(e);
       }
