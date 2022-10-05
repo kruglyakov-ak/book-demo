@@ -67,20 +67,25 @@ export default Controller.extend({
 
     filterReports(evt) {
       evt.preventDefault();
-
-      this.set("book", this.get("bookValue"));
-      this.set("speaker", this.get("speakerValue"));
-      this.set("date", this.get("dateValue"));
+      this.setProperties({
+        book: this.get("bookValue"),
+        speaker: this.get("speakerValue"),
+        date: this.get("dateValue"),
+        page: 1,
+      });
     },
 
     resetFilters(evt) {
       evt.preventDefault();
-      this.set("book", "");
-      this.set("speaker", "");
-      this.set("date", "");
-      this.set("bookValue", "");
-      this.set("speakerValue", "");
-      this.set("dateValue", "");
+      this.setProperties({
+        book: "",
+        speaker: "",
+        date: "",
+        bookValue: "",
+        speakerValue: "",
+        dateValue: "",
+        page: 1,
+      });
     },
 
     clickNext(evt) {
