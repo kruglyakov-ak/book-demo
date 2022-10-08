@@ -6,6 +6,7 @@ export default Controller.extend({
   actions: {
     async deleteSpeaker(speaker) {
       await speaker.destroyRecord();
+      await this.get("store").unloadRecord(speaker);
     },
 
     clickOnCreateButton() {

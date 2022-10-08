@@ -14,6 +14,7 @@ export default Component.extend({
 
     async deleteReport(report) {
       await report.destroyRecord();
+      await this.get("store").unloadRecord(report);
     },
   },
 
