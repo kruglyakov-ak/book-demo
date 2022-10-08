@@ -4,14 +4,18 @@ export default Controller.extend({
   actions: {
     async saveMeeting(evt, meeting) {
       if (evt.submitter.dataset.name === "save") {
-        let newMeeting = await this.get("store").createRecord(
+        const newMeeting = await this.get("store").createRecord(
           "meeting",
           meeting
         );
-        await newMeeting.save();
-      }
+        const uploadMeeting = await newMeeting.save();
 
-      this.transitionToRoute("meeting.index");
+        this.transitionToRoute(`/meetings/${uploadMeeting.get("id")}/edit`);
+      }
     },
+
+    clickOnCreateReport() {
+      alert("Please save meeting!");
+    }
   },
 });

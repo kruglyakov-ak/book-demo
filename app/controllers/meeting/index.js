@@ -101,5 +101,11 @@ export default Controller.extend({
         this.set("page", this.get("page") - 1);
       }
     },
+
+    async deleteMeeting(meeting) {
+      await meeting.destroyRecord();
+      await this.get("store").unloadRecord(meeting);
+      this.set("page", this.get("page") - 1);
+    },
   },
 });

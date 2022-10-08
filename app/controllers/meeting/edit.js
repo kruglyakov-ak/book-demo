@@ -15,5 +15,9 @@ export default Controller.extend({
 
       this.transitionToRoute("meeting.index");
     },
+
+    clickOnCreateReport() {
+      this.transitionToRoute("meeting.report.create");
+    }
   },
 });

@@ -7,6 +7,7 @@ export default Controller.extend({
   actions: {
     async deleteBook(book) {
       await book.destroyRecord();
+      await this.get("store").unloadRecord(book);
     },
 
     clickOnCreateButton() {
