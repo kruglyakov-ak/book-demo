@@ -1,0 +1,32 @@
+<div class="form-signin-wrapper">
+  <main class="form-signin text-center">
+    <form>
+      <img class="mb-4" src="images/logo-dark.png" alt="" height="57" />
+      <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Пароль"
+        />
+      </div>
+
+      <button
+        class="w-100 btn btn-lg btn-primary mb-3"
+        type="submit"
+        href="index.html"
+      >Зарегистрироваться</button>
+      {{#link-to "index" class="w-100"}}Назад{{/link-to}}
+    </form>
+  </main>
+</div>

@@ -26,6 +26,8 @@ Router.map(function () {
   });
   this.route("error", { path: ":error" });
   this.route("404", { path: "*path" });
+  this.route('login');
+  this.route('register');
 });
 
 export default Router;
