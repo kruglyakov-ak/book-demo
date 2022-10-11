@@ -17,6 +17,8 @@ export default DS.JSONAPIAdapter.extend({
         "Authorization"
       ] = `Bearer ${this.session.data.authenticated.token}`;
     }
+
+    return resultHeaders;
   }).volatile(),
 
   buildURL(modelName, id, snapshot, requestType) {

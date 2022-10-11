@@ -74,7 +74,6 @@ const getForbiddenError = () =>
   );
 
 const getBaseRoute = (req) => {
-  console.log(req.body);
   const path = req.path.split("/");
   return path.length > 1 ? path[1] : "/";
 };
