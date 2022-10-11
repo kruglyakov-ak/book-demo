@@ -8,13 +8,10 @@ export default Service.extend({
       if (!uploadData) {
         resolve();
       }
-
       uploadData.url = `${ENV.fileUploadURL}`;
-      uploadData.url = `${ENV.fileUploadURL}`;
-      // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
       uploadData
         .submit()
-        .done(async (result /*, textStatus, jqXhr*/) => {
+        .done(async (result) => {
           try {
             const dataToUpload = {
               entityName: "books",
@@ -22,12 +19,12 @@ export default Service.extend({
               fileName: result.filename,
             };
 
-            await fetch(`${ENV.backendURL}/saveURL`, {
-              method: "POST",
+            await fetch(`${ENV.backendURL}/books/${dataToUpload.id}`, {
+              method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(dataToUpload),
+              body: JSON.stringify({coverURL: `uploads/${dataToUpload.fileName}`}),
             });
 
             // eslint-disable-next-line no-console

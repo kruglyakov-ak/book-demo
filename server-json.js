@@ -18,7 +18,6 @@ const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 const RECAPTCHA_SECRET = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
 
 const pathToSave = "public/uploads";
-const urlBase = "/uploads/";
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     if (!fs.existsSync(path.join(__dirname, pathToSave))) {
@@ -260,20 +259,6 @@ server.post("/FileUpload", upload.any(), function (req, res) {
   } else {
     res.status(201).json({ filename: filedata[0].filename });
   }
-});
-
-server.post("/saveURL", function (req, res) {
-  const entityId = req.body.id;
-  const entityName = req.body.entityName;
-  const fileName = req.body.fileName;
-
-  const db = router.db; //lowdb instance
-  const book = db
-    .get(entityName)
-    .find({ id: entityId })
-    .assign({ coverURL: `${urlBase}${fileName}` })
-    .write();
-  res.status(200).json(book);
 });
 
 function responseInterceptor(req, res, next) {
