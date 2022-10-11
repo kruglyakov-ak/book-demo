@@ -1,5 +1,5 @@
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 
 export default Controller.extend({
   session: service(),
@@ -7,13 +7,12 @@ export default Controller.extend({
   actions: {
     async login(user) {
       try {
-        await this.get('session').authenticate('authenticator:jwt', {
+        await this.get("session").authenticate("authenticator:jwt", {
           email: user.email,
-          password: user.password
+          password: user.password,
         });
-      }
-      catch(e) {
-        this.send('error', e);
+      } catch (e) {
+        this.send("error", e);
       }
     },
 
@@ -22,12 +21,12 @@ export default Controller.extend({
         return true;
       }
 
-      this.set('errors', error.json.errors);
+      this.set("errors", error.json.errors);
       return false;
-    }
+    },
   },
 
   resetErrors() {
-    this.set('errors', {});
-  }
+    this.set("errors", {});
+  },
 });
