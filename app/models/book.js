@@ -8,4 +8,6 @@ export default DS.Model.extend({
   tags: DS.attr(),
   coverURL: DS.attr("string"),
   rate: DS.attr("number"),
+
+  user: DS.belongsTo('user')
 });
