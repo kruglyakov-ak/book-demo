@@ -12,6 +12,11 @@
       placeholder="name@example.com"
       value=email
     }}
+    {{#if (and isInvalid (v-get this "email" "isInvalid"))}}
+      <span class="error-message">
+        {{v-get this "email" "message"}}
+      </span>
+    {{/if}}
   </div>
   <div class="form-floating">
     {{input
@@ -21,6 +26,11 @@
       placeholder="Пароль"
       value=password
     }}
+    {{#if (and isInvalid (v-get this "password" "isInvalid"))}}
+      <span class="error-message">
+        {{v-get this "password" "message"}}
+      </span>
+    {{/if}}
   </div>
 
   <div class="checkbox mb-3">

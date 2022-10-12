@@ -1,19 +1,42 @@
 import Component from "@ember/component";
+import fetch from "fetch";
 import ENV from "book-demo/config/environment";
+import { validator, buildValidations } from "ember-cp-validations";
 
-export default Component.extend({
+const Validations = buildValidations({
+  email: [
+    validator("ds-error"),
+    validator("presence", true),
+    validator("format", {
+      type: "email",
+    }),
+  ],
+  password: [
+    validator("ds-error"),
+    validator("presence", true),
+    validator("length", {
+      min: 4,
+      max: 8,
+    }),
+  ],
+});
+
+export default Component.extend(Validations, {
   iAmRobot: true,
   reset: false,
 
   actions: {
     async saveUser(e) {
       e.preventDefault();
-
-      this.get("onSubmit")({
-        email: this.email,
-        password: this.password,
-      });
+      this.set("isInvalid", !this.get("validations.isValid"));
+      if (!this.get("isInvalid")) {
+        this.get("onSubmit")({
+          email: this.email,
+          password: this.password,
+        });
+      }
     },
+
     async verified(key) {
       try {
         const { success } = await (
@@ -38,14 +61,3 @@ export default Component.extend({
     });
   },
 });
-
-// ember-can@1.1.1
-// ember-cli-google-recaptcha@2.4.0
-// ember-cp-validations@3.5.2
-// ember-fetch@8.1.1
-// ember-promise-helpers@1.0.6
-// ember-simple-auth@2.1.1
-// ember-simple-auth-token@4.0.3
-// embercasts-library-styles@1.1.2
-// jsonwebtoken@8.5.1
-// node-fetch@2.6.2
