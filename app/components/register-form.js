@@ -1,6 +1,10 @@
 import Component from "@ember/component";
+import ENV from "book-demo/config/environment";
 
 export default Component.extend({
+  iAmRobot: true,
+  reset: false,
+
   actions: {
     async saveUser(e) {
       e.preventDefault();
@@ -9,6 +13,21 @@ export default Component.extend({
         email: this.email,
         password: this.password,
       });
+    },
+    async verified(key) {
+      try {
+        const { success } = await (
+          await fetch(`${ENV.backendURL}/recaptcha?key=${key}`)
+        ).json();
+
+        this.set("iAmRobot", !success);
+      } catch (error) {
+        this.set("reset", true);
+      }
+    },
+
+    expired() {
+      this.set("iAmRobot", true);
     },
   },
 
@@ -19,7 +38,6 @@ export default Component.extend({
     });
   },
 });
-
 
 // ember-can@1.1.1
 // ember-cli-google-recaptcha@2.4.0

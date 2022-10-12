@@ -29,10 +29,19 @@
     {{/each}}
   </div>
 
+    <div class="form-floating">
+    {{g-recaptcha-v2
+      verified=(action "verified")
+      expired=(action "expired")
+      reset=reset
+    }}
+  </div>
+
   <button
     class="w-100 btn btn-lg btn-primary mb-3"
     type="submit"
     href="index.html"
+    disabled={{iAmRobot}}
   >Зарегистрироваться</button>
   {{#link-to "index" class="w-100"}}Назад{{/link-to}}
 </form>
