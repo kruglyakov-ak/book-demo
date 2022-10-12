@@ -21,14 +21,14 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      "ember-simple-auth-token": {
-        serverTokenEndpoint: "http://localhost:3000/token",
-        refreshAccessTokens: false,
-      },
-      "ember-cli-google": {
-        recaptcha: {
-          siteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
-        },
+    },
+    "ember-simple-auth-token": {
+      serverTokenEndpoint: "http://localhost:3000/token",
+      refreshAccessTokens: false,
+    },
+    "ember-cli-google": {
+      recaptcha: {
+        siteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
       },
     },
   };
@@ -59,9 +59,8 @@ module.exports = function (environment) {
     // here you can enable a production-specific feature
   }
 
-  if (environment === "ci") {
-    // here you can enable a production-specific feature
-    ENV.rootURL = "/book-demo/";
+  if (environment === "deploy") {
+    ENV.rootURL = "/books-demo/";
   }
 
   return ENV;

@@ -186,5 +186,11 @@
       "review": "Sapiente possimus temporibus eligendi id ea voluptate sit. Qui dolore tempore assumenda est quis et ut ut. Fugit reiciendis harum. Iusto magni aut illo in nesciunt reprehenderit. Porro ut aliquam autem vel. Dolorum officiis nobis ducimus dolorem nulla laudantium deleniti mollitia recusandae."
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "a@a.a",
+      "password": "666f7ac00db9d033369e5db9232e83d58e46ffedcfca2c184a0d8dcadc2676b6",
+      "id": 1
+    }
+  ]
 }
