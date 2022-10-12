@@ -1,0 +1,47 @@
+<form onsubmit={{action "saveUser"}}>
+  <img class="mb-4" src="images/logo-dark.png" alt="" height="57" />
+  <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+
+  <div class="form-floating">
+    {{input
+      type="email"
+      class="form-control"
+      id="floatingInput"
+      placeholder="name@example.com"
+      value=email
+    }}
+
+    {{#each errors.email as |error|}}
+      <span class="error-message">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="form-floating">
+    {{input
+      type="password"
+      class="form-control"
+      id="floatingPassword"
+      placeholder="Пароль"
+      value=password
+    }}
+
+    {{#each errors.password as |error|}}
+      <span class="error-message">{{error.message}}</span>
+    {{/each}}
+  </div>
+
+    <div class="form-floating">
+    {{g-recaptcha-v2
+      verified=(action "verified")
+      expired=(action "expired")
+      reset=reset
+    }}
+  </div>
+
+  <button
+    class="w-100 btn btn-lg btn-primary mb-3"
+    type="submit"
+    href="index.html"
+    disabled={{iAmRobot}}
+  >Зарегистрироваться</button>
+  {{#link-to "index" class="w-100"}}Назад{{/link-to}}
+</form>

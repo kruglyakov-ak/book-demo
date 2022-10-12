@@ -11,7 +11,8 @@
       ],
       "rate": 3,
       "descriptionLink": "",
-      "coverURL": ""
+      "coverURL": "",
+      "userId": 1
     },
     {
       "id": 2,
@@ -23,7 +24,8 @@
         "суперкгнига",
         "программирование"
       ],
-      "rate": 3
+      "rate": 3,
+      "userId": 1
     },
     {
       "id": 3,
@@ -47,7 +49,8 @@
         "суперкгнига",
         "программирование"
       ],
-      "rate": 3
+      "rate": 3,
+      "userId": 1
     },
     {
       "id": 5,
@@ -59,7 +62,8 @@
         "суперкгнига",
         "программирование"
       ],
-      "rate": 3
+      "rate": 3,
+      "userId": 1
     },
     {
       "id": 6,
@@ -71,7 +75,8 @@
         "суперкгнига",
         "программирование"
       ],
-      "rate": 3
+      "rate": 3,
+      "userId": 1
     }
   ],
   "speakers": [
@@ -79,39 +84,51 @@
       "id": 1,
       "name": "Evgeniy",
       "surname": "Khaberev",
-      "patronymic": "Sergeevich"
+      "patronymic": "Sergeevich",
+      "userId": 1
     },
     {
       "id": 2,
       "name": "Markus",
       "surname": "Friendly",
-      "patronymic": "Avrelievich"
+      "patronymic": "Avrelievich",
+      "userId": 1
     },
     {
       "id": 3,
       "name": "Sam",
       "surname": "Ridley",
-      "patronymic": "Petrovich"
+      "patronymic": "Petrovich",
+      "userId": 1
     },
     {
       "id": 4,
       "name": "Joht",
       "surname": "Smith",
-      "patronymic": "Ivanov"
+      "patronymic": "Ivanov",
+      "userId": 1
     }
   ],
   "meetings": [
     {
       "id": 1,
-      "date": "2020-10-24T14:04:11.041Z"
+      "date": "2020-10-24T14:04:11.041Z",
+      "userId": 1
     },
     {
       "id": 2,
-      "date": "2020-11-03T14:04:11.041Z"
+      "date": "2020-11-03T14:04:11.041Z",
+      "userId": 1
     },
     {
       "id": 3,
-      "date": "2020-11-12T14:04:11.041Z"
+      "date": "2020-11-12T14:04:11.041Z",
+      "userId": 1
+    },
+    {
+      "date": "2022-10-11T21:00:00.000Z",
+      "userId": 1,
+      "id": 4
     }
   ],
   "reports": [
@@ -184,6 +201,18 @@
       "bookId": 6,
       "speakerId": 4,
       "review": "Sapiente possimus temporibus eligendi id ea voluptate sit. Qui dolore tempore assumenda est quis et ut ut. Fugit reiciendis harum. Iusto magni aut illo in nesciunt reprehenderit. Porro ut aliquam autem vel. Dolorum officiis nobis ducimus dolorem nulla laudantium deleniti mollitia recusandae."
+    }
+  ],
+  "users": [
+    {
+      "email": "a@a.a",
+      "password": "666f7ac00db9d033369e5db9232e83d58e46ffedcfca2c184a0d8dcadc2676b6",
+      "id": 1
+    },
+    {
+      "email": "admin@admin.ru",
+      "password": "666f7ac00db9d033369e5db9232e83d58e46ffedcfca2c184a0d8dcadc2676b6",
+      "id": 2
     }
   ]
 }

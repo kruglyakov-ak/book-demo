@@ -1,6 +1,9 @@
 import Component from "@ember/component";
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  currentUser: service(),
+
   actions: {
     async submitForm(evt) {
       evt.preventDefault();
@@ -18,6 +21,7 @@ export default Component.extend({
           rate: Math.floor(Math.random() * 100),
           tags: this.get("tags"),
           coverURL: this.get("coverURL"),
+          user: this.get('currentUser.user'),
         },
         uploadData
       );

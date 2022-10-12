@@ -9,4 +9,5 @@ export default DS.Model.extend({
   fullName: computed('surname', 'name', function() {
     return `${this.get('surname')} ${this.get('name')}`;
   }),
+  user: DS.belongsTo('user'),
 });

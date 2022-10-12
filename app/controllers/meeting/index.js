@@ -1,9 +1,11 @@
 import Controller from "@ember/controller";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export const PER_PAGE = 1;
 
 export default Controller.extend({
+  session: service(),
   queryParams: ["speaker", "page", "book", "date"],
   speaker: "",
   book: "",
