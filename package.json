@@ -48,6 +48,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^8.0.2",
     "ember-power-select": "2.3.5",
+    "ember-promise-helpers": "^1.0.6",
     "ember-resolver": "^4.0.0",
     "ember-simple-auth": "^2.1.1",
     "ember-simple-auth-token": "^4.0.3",
