@@ -11,9 +11,11 @@
       value=email
     }}
 
-    {{#each errors.email as |error|}}
-      <span class="error-message">{{error.message}}</span>
-    {{/each}}
+    {{#if (v-get this 'email' 'isInvalid')}}
+      <span class="error-message">
+        {{v-get this 'email' 'message'}}
+      </span>
+    {{/if}}
   </div>
   <div class="form-floating">
     {{input
@@ -24,9 +26,11 @@
       value=password
     }}
 
-    {{#each errors.password as |error|}}
-      <span class="error-message">{{error.message}}</span>
-    {{/each}}
+    {{#if (v-get this 'password' 'isInvalid')}}
+      <span class="error-message">
+        {{v-get this 'password' 'message'}}
+      </span>
+    {{/if}}
   </div>
 
     <div class="form-floating">

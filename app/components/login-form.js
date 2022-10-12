@@ -1,21 +1,32 @@
-import Component from '@ember/component';
+import Component from "@ember/component";
+import { validator, buildValidations } from "ember-cp-validations";
 
-export default Component.extend({
+const Validations = buildValidations({
+  email: [validator("presence", true), validator("format", { type: "email" })],
+  password: [validator("presence", true)],
+});
+
+export default Component.extend(Validations, {
+  isInvalid: false,
+
   actions: {
     login(e) {
       e.preventDefault();
 
-      this.get('onSubmit')({
-        email: this.email,
-        password: this.password
-      });
-    }
+      this.set("isInvalid", !this.get("validations.isValid"));
+      if (!this.get("isInvalid")) {
+        this.get("onSubmit")({
+          email: this.email,
+          password: this.password,
+        });
+      }
+    },
   },
 
   didReceiveAttrs() {
     this.setProperties({
-      email: this.get('user.email'),
-      password: this.get('user.password')
+      email: this.get("user.email"),
+      password: this.get("user.password"),
     });
-  }
+  },
 });
