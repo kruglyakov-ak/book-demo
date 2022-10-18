@@ -26,34 +26,26 @@
       </div>
       <div class="col-md-auto">
         <form class="form-inline">
-          {{input
+          <input
             class="form-control mr-2 search-long"
             type="search"
             placeholder="Найти по полям"
             aria-label="Найти по полям"
-            value=searchBooks
-          }}
-          <button
-            class="btn btn-primary my-2"
-            type="submit"
-            onclick={{action "search"}}
-          >Найти</button>
+            oninput={{action "search"}}
+            defaultValue={{search}}
+          />
         </form>
       </div>
       <div class="col-md-auto">
         <form class="form-inline">
-          {{input
+          <input
             class="form-control mr-2"
             type="search"
             placeholder="Поиск по тегам"
             aria-label="Найти по тегам"
-            value=searchBooksByTags
-          }}
-          <button
-            class="btn btn-primary my-2"
-            type="submit"
-            onclick={{action "searchByTags"}}
-          >Поиск</button>
+            oninput={{action "searchByTags"}}
+            defaultValue={{searchByTags}}
+          />
         </form>
       </div>
     </div>

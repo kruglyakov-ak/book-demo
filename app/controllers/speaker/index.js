@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { debounce } from "@ember/runloop";
 
 export default Controller.extend({
   search: "",
@@ -25,9 +26,10 @@ export default Controller.extend({
       this.transitionToRoute(`/speakers/${id}/edit`);
     },
 
-    search(evt) {
-      evt.preventDefault();
-      this.set("search", this.searchSpeaker);
+    search({ target }) {
+      debounce(() => {
+        this.set("search", target.value);
+      }, 1000);
     },
   },
 });
