@@ -1,7 +1,10 @@
 import Service from "@ember/service";
 import ENV from "book-demo/config/environment";
+import { inject as service } from "@ember/service";
 
 export default Service.extend({
+  session: service(),
+
   uploadBookData(savedBook, uploadData) {
     return new Promise(async (resolve, reject) => {
 
@@ -23,6 +26,7 @@ export default Service.extend({
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.session.data.authenticated.token}`
               },
               body: JSON.stringify({coverURL: `uploads/${dataToUpload.fileName}`}),
             });

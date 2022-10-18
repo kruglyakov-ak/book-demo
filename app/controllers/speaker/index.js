@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { debounce } from "@ember/runloop";
 
 export default Controller.extend({
   search: "",
@@ -7,8 +8,14 @@ export default Controller.extend({
 
   actions: {
     async deleteSpeaker(speaker) {
-      await speaker.destroyRecord();
-      await this.get("store").unloadRecord(speaker);
+      const errorLogger = this.get("errorLogger");
+      try {
+        await speaker.destroyRecord();
+        await this.get("store").unloadRecord(speaker);
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
+      }
     },
 
     clickOnCreateButton() {
@@ -19,9 +26,10 @@ export default Controller.extend({
       this.transitionToRoute(`/speakers/${id}/edit`);
     },
 
-    search(evt) {
-      evt.preventDefault();
-      this.set("search", this.searchSpeaker);
+    search({ target }) {
+      debounce(() => {
+        this.set("search", target.value);
+      }, 1000);
     },
   },
 });

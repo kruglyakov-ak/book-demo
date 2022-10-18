@@ -6,6 +6,8 @@ export default Controller.extend({
 
   actions: {
     async login(user) {
+      const errorLogger = this.get("errorLogger");
+
       try {
         await this.get("session").authenticate("authenticator:jwt", {
           email: user.email,
@@ -13,6 +15,8 @@ export default Controller.extend({
         });
       } catch (e) {
         this.send("error", e);
+        const err = await errorLogger.createError(e);
+        await this.get("store").createRecord("error", err).save();
       }
     },
 

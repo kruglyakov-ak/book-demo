@@ -124,11 +124,6 @@
       "id": 3,
       "date": "2020-11-12T14:04:11.041Z",
       "userId": 1
-    },
-    {
-      "date": "2022-10-11T21:00:00.000Z",
-      "userId": 1,
-      "id": 4
     }
   ],
   "reports": [
@@ -214,5 +209,6 @@
       "password": "666f7ac00db9d033369e5db9232e83d58e46ffedcfca2c184a0d8dcadc2676b6",
       "id": 2
     }
-  ]
+  ],
+  "errors": []
 }

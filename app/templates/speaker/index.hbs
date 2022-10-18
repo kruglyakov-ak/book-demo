@@ -1,6 +1,6 @@
 <div class="container h-100">
   <div class="htop">
-    <h2 class="text-center">Спикеры</h2>
+    <h2 class="text-center">{{t "menu.speakers"}}</h2>
     <div class="form-row navbar-panel justify-content-between">
       {{#if session.isAuthenticated}}
         <div class="col-md-auto">
@@ -26,18 +26,14 @@
       {{/if}}
       <div class="col-md-auto">
         <form class="form-inline">
-          {{input
+          <input
             class="form-control mr-2 search-long search-only"
             type="search"
             placeholder="ФИО"
             aria-label="Спикер"
-            value=searchSpeaker
-          }}
-          <button
-            class="btn btn-primary my-2"
-            type="submit"
-            onclick={{action "search"}}
-          >Найти</button>
+            oninput={{action "search"}}
+            defaultValue={{search}}
+          />
         </form>
       </div>
     </div>
