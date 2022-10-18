@@ -1,6 +1,6 @@
 <div class="row h-100 justify-content-between">
   <div class="col-md-2 text-center">
-    <h5 class="py-2">Спикер</h5>
+    <h5 class="py-2">{{t "menu.speaker"}}</h5>
     <img
       src="{{rootURL}}images/speaker.jpg"
       class="rounded w-100"
@@ -9,12 +9,12 @@
     <p>{{report.speaker.fullName}}</p>
   </div>
   <div class="col-md-2 text-center">
-    <h5 class="py-2">Книга</h5>
+    <h5 class="py-2">{{t "menu.book"}}</h5>
     <p>{{report.book.title}}</p>
     <p>{{report.book.authorName}}</p>
     <div class="row align-items-center m-0">
       <div class="col-md-auto pl-0">
-        Оценка:
+        {{t "menu.rating"}}:
       </div>
       <div class="col p-0">
         <div class="progress">
@@ -31,13 +31,13 @@
     </div>
   </div>
   <div class={{if isEdit "col-md-4" "col-md-6"}}>
-    <h5 class="text-center py-2">Отзыв</h5>
+    <h5 class="text-center py-2">{{t "menu.review"}}</h5>
     <p>
       {{report.review}}
     </p>
   </div>
   <div class="col-md-2 text-center col-filter">
-    <h5 class="py-2">Ссылки</h5>
+    <h5 class="py-2">{{t "menu.links"}}</h5>
     <a href="#" class="btn btn-video" title="Посмотреть запись доклада">
       <svg
         viewBox="0 0 16 16"

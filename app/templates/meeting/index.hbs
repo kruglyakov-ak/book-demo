@@ -1,6 +1,6 @@
 <div class="container h-100">
   <div class="htop">
-    <h2 class="text-center">Встречи клуба</h2>
+    <h2 class="text-center">{{t "menu.meetings"}}</h2>
     <div class="form-row navbar-panel justify-content-between align-items-end">
       {{#if session.isAuthenticated}}
         <div class="col-md-1">
@@ -25,7 +25,7 @@
         </div>
       {{/if}}
       <div class="col-md-3 align-top">
-        <h5>Спикер</h5>
+        <h5>{{t "menu.speaker"}}</h5>
         {{#power-select
           class="selectpicker form-control dropdown-filter-control"
           options=model.speakers
@@ -39,7 +39,7 @@
         {{/power-select}}
       </div>
       <div class="col-md-3">
-        <h5>Книга</h5>
+        <h5>{{t "menu.book"}}</h5>
         {{#power-select
           class="selectpicker form-control dropdown-filter-control"
           options=model.books
@@ -53,7 +53,7 @@
         {{/power-select}}
       </div>
       <div class="col-md-3">
-        <h5>Дата встречи</h5>
+        <h5>{{t "menu.meetingDate"}}</h5>
         <div class="form-group py-2 my-0">
           <div class="datepicker date input-group p-0 w-100">
             {{input
