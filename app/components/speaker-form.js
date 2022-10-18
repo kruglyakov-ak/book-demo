@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 export default Component.extend({
   currentUser: service(),
   actions: {
-    async submitForm(evt) {
+    submitForm(evt) {
       evt.preventDefault();
 
       this.onsubmit(evt, {

@@ -17,7 +17,8 @@ export default Route.extend({
     },
   },
 
-  model({ book, speaker, date, page }) {
+  async model({ book, speaker, date, page }) {
+    const errorLogger = this.get("errorLogger");
     const query = {
       _page: page,
     };
@@ -34,10 +35,15 @@ export default Route.extend({
       query.date_like = date;
     }
 
-    return RSVP.hash({
-      speakers: this.get("store").findAll("speaker"),
-      books: this.get("store").findAll("book"),
-      meetings: this.get("store").query("meeting", query),
-    });
+    try {
+      return RSVP.hash({
+        speakers: this.get("store").findAll("speaker"),
+        books: this.get("store").findAll("book"),
+        meetings: this.get("store").query("meeting", query),
+      });
+    } catch (error) {
+      const err = await errorLogger.createError(error);
+      await this.get("store").createRecord("error", err).save();
+    }
   },
 });

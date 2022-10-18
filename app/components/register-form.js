@@ -28,16 +28,25 @@ export default Component.extend(Validations, {
   actions: {
     async saveUser(e) {
       e.preventDefault();
-      this.set("isInvalid", !this.get("validations.isValid"));
-      if (!this.get("isInvalid")) {
-        this.get("onSubmit")({
-          email: this.email,
-          password: this.password,
-        });
+      const errorLogger = this.get("errorLogger");
+
+      try {
+        this.set("isInvalid", !this.get("validations.isValid"));
+        if (!this.get("isInvalid")) {
+          this.get("onSubmit")({
+            email: this.email,
+            password: this.password,
+          });
+        }
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
       }
     },
 
     async verified(key) {
+      const errorLogger = this.get("errorLogger");
+
       try {
         const { success } = await (
           await fetch(`${ENV.backendURL}/recaptcha?key=${key}`)
@@ -46,6 +55,8 @@ export default Component.extend(Validations, {
         this.set("iAmRobot", !success);
       } catch (error) {
         this.set("reset", true);
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
       }
     },
 

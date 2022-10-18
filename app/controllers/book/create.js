@@ -6,12 +6,18 @@ export default Controller.extend({
   actions: {
     async saveBook(evt, book, uploadData) {
       evt.preventDefault();
+      const errorLogger = this.get("errorLogger");
 
       if (evt.submitter.dataset.name === "save") {
-        let newBook = await this.get("store").createRecord("book", book);
-        const uploadBook = await newBook.save();
+        try {
+          const newBook = await this.get("store").createRecord("book", book);
+          const uploadBook = await newBook.save();
 
-        await this.get("dataService").uploadBookData(uploadBook, uploadData);
+          await this.get("dataService").uploadBookData(uploadBook, uploadData);
+        } catch (error) {
+          const err = await errorLogger.createError(error);
+          await this.get("store").createRecord("error", err).save();
+        }
       }
 
       this.transitionToRoute("book.index");

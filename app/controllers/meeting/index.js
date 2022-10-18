@@ -105,9 +105,15 @@ export default Controller.extend({
     },
 
     async deleteMeeting(meeting) {
-      await meeting.destroyRecord();
-      await this.get("store").unloadRecord(meeting);
-      this.set("page", this.get("page") - 1);
+      const errorLogger = this.get("errorLogger");
+      try {
+        await meeting.destroyRecord();
+        await this.get("store").unloadRecord(meeting);
+        this.set("page", this.get("page") - 1);
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
+      }
     },
   },
 });

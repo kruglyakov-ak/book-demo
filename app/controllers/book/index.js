@@ -8,8 +8,15 @@ export default Controller.extend({
 
   actions: {
     async deleteBook(book) {
-      await book.destroyRecord();
-      await this.get("store").unloadRecord(book);
+      const errorLogger = this.get("errorLogger");
+
+      try {
+        await book.destroyRecord();
+        await this.get("store").unloadRecord(book);
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
+      }
     },
 
     clickOnCreateButton() {
@@ -22,16 +29,16 @@ export default Controller.extend({
 
     search(evt) {
       evt.preventDefault();
-      this.set("search", this.searchBooks)
+      this.set("search", this.searchBooks);
     },
 
     searchByTags(evt) {
       evt.preventDefault();
-      this.set("searchByTags", this.searchBooksByTags)
+      this.set("searchByTags", this.searchBooksByTags);
     },
 
     routeByTag(tag) {
-      this.set("searchByTags", tag)
-    }
+      this.set("searchByTags", tag);
+    },
   },
 });

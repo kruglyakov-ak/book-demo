@@ -7,8 +7,14 @@ export default Controller.extend({
 
   actions: {
     async deleteSpeaker(speaker) {
-      await speaker.destroyRecord();
-      await this.get("store").unloadRecord(speaker);
+      const errorLogger = this.get("errorLogger");
+      try {
+        await speaker.destroyRecord();
+        await this.get("store").unloadRecord(speaker);
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
+      }
     },
 
     clickOnCreateButton() {

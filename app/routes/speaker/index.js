@@ -13,6 +13,12 @@ export default Route.extend({
       query.q = search;
     }
 
-    return this.get("store").query("speaker", query);
+    const errorLogger = this.get("errorLogger");
+    try {
+      return this.get("store").query("speaker", query);
+    } catch (error) {
+      const err = await errorLogger.createError(error);
+      await this.get("store").createRecord("error", err).save();
+    }
   },
 });

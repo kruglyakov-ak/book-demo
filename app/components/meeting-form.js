@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 export default Component.extend({
   currentUser: service(),
   actions: {
-    async submitForm(evt) {
+    submitForm(evt) {
       evt.preventDefault();
 
       this.onsubmit(evt, {
@@ -16,8 +16,15 @@ export default Component.extend({
     },
 
     async deleteReport(report) {
-      await report.destroyRecord();
-      await this.get("store").unloadRecord(report);
+      const errorLogger = this.get("errorLogger");
+
+      try {
+        await report.destroyRecord();
+        await this.get("store").unloadRecord(report);
+      } catch (error) {
+        const err = await errorLogger.createError(error);
+        await this.get("store").createRecord("error", err).save();
+      }
     },
   },
 

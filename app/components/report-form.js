@@ -17,7 +17,7 @@ export default Component.extend({
   }),
 
   actions: {
-    async submitForm(evt) {
+    submitForm(evt) {
       evt.preventDefault();
 
       this.onsubmit(

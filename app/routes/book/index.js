@@ -9,8 +9,9 @@ export default Route.extend({
       refreshModel: true,
     },
   },
-  model({search, searchByTags}) {
+  async model({ search, searchByTags }) {
     const query = {};
+    const errorLogger = this.get("errorLogger");
 
     if (search) {
       query.q = search;
@@ -19,6 +20,12 @@ export default Route.extend({
     if (searchByTags) {
       query.tags_like = searchByTags;
     }
-    return this.get("store").query("book", query);
+
+    try {
+      return this.get("store").query("book", query);
+    } catch (error) {
+      const err = await errorLogger.createError(error);
+      await this.get("store").createRecord("error", err).save();
+    }
   },
 });
