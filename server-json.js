@@ -84,6 +84,7 @@ const isAuthorized = (req) => {
     req.path === "/users" ||
     req.path === "/token" ||
     req.path === "/errors" ||
+    req.path === "/FileUpload" ||
     ((baseRoute === "speakers" ||
       baseRoute === "books" ||
       baseRoute === "meetings") &&
@@ -288,7 +289,6 @@ function responseInterceptor(req, res, next) {
 server.use((req, res, next) => {
   if (req.path === "/errors" && req.method === "POST") {
     req.body.userIP = req.ip;
-    console.log(req)
   }
   next();
 });

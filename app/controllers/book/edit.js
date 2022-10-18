@@ -20,7 +20,13 @@ export default Controller.extend({
           bookModel.set("coverURL", book.coverURL);
 
           const uploadBook = await bookModel.save();
-          await this.get("dataService").uploadBookData(uploadBook, uploadData);
+
+          if (uploadData) {
+            await this.get("dataService").uploadBookData(
+              uploadBook,
+              uploadData
+            );
+          }
         } catch (error) {
           const err = await errorLogger.createError(error);
           await this.get("store").createRecord("error", err).save();
