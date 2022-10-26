@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build Application
-        run: npx ember build --environment=ci
+        run: npx ember build --environment=deploy
 
       - name: Run deploy script
         run: sh ./scripts/deploy-to-gh-pages.sh
