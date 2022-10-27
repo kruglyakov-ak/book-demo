@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { debounce } from "@ember/runloop";
+import { set } from "@ember/object";
 
 export default Controller.extend({
   session: service(),
@@ -29,15 +30,11 @@ export default Controller.extend({
     },
 
     search({ target }) {
-      debounce(() => {
-        this.set("search", target.value);
-      }, 1000);
+      debounce(() => set(this, "search", target.value), 1000);
     },
 
     searchByTags({ target }) {
-      debounce(() => {
-        this.set("searchByTags", target.value);
-      }, 1000);
+      debounce(() => set(this, "searchByTags", target.value), 1000);
     },
 
     routeByTag(tag) {

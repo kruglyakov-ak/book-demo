@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { set } from "@ember/object";
 import { debounce } from "@ember/runloop";
 
 export default Controller.extend({
@@ -27,9 +28,7 @@ export default Controller.extend({
     },
 
     search({ target }) {
-      debounce(() => {
-        this.set("search", target.value);
-      }, 1000);
+      debounce(() => set(this, "search", target.value), 1000);
     },
   },
 });
