@@ -15,7 +15,7 @@ export default Controller.extend({
         });
       } catch (e) {
         this.send("error", e);
-        const err = await errorLogger.createError(e);
+        const err = await errorLogger.createError(e.statusText);
         await this.get("store").createRecord("error", err).save();
       }
     },
