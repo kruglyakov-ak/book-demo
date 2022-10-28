@@ -29,15 +29,11 @@ export default Controller.extend({
     },
 
     search({ target }) {
-      debounce(() => {
-        this.set("search", target.value);
-      }, 1000);
+      debounce(this, this.set, 'search', target.value, 1000);
     },
 
     searchByTags({ target }) {
-      debounce(() => {
-        this.set("searchByTags", target.value);
-      }, 1000);
+      debounce(this, this.set, 'searchByTags', target.value, 1000);
     },
 
     routeByTag(tag) {
